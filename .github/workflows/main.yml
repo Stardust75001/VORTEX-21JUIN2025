@@ -26,23 +26,8 @@ jobs:
         env:
           SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
         run: |
-          shopify theme push --path=. --store=thepetsociety.paris --theme ${{ secrets.SHOPIFY_THEME_ID }} --allow-live
-
-  notify_failure_if_any:
-    name: Notify Sentry if deployment fails
-    runs-on: ubuntu-latest
-    needs: [deploy-to-shopify]
-    if: failure()
-    steps:
-      - name: Notify Sentry of failure
-        run: |
-          curl -X POST https://o4509330673303552.ingest.de.sentry.io/api/4509534073585744/envelope/ \
-          -H "Content-Type: application/json" \
-          --data-raw "{
-            \"dsn\": \"https://5d6ea3eb04284ce2f254e29083d3ddf7@o4509330673303552.ingest.de.sentry.io/4509534073585744\",
-            \"event_id\": \"$(uuidgen)\",
-            \"message\": \"🚨 Échec du déploiement Shopify via GitHub Actions\",
-            \"level\": \"error\",
-            \"platform\": \"other\",
-            \"timestamp\": $(date +%s)
-          }"
+          shopify theme push \
+            --store=thepetsociety.paris \
+            --theme-id=${{ secrets.SHOPIFY_THEME_ID }} \
+            --path=. \
+            --allow-live
