@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: List repo files
+        run: ls -la
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -22,14 +25,20 @@ jobs:
       - name: Install Shopify CLI
         run: npm install -g @shopify/cli @shopify/theme
 
+      - name: Validate theme
+        env:
+          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
+        run: shopify theme check
+
       - name: Deploy theme to Shopify
         env:
           SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
-          SHOPIFY_STORE: thepetsociety.paris
         run: |
-          echo "🚀 Déploiement du thème vers Shopify..."
-          shopify theme push --path=. --store=$SHOPIFY_STORE --allow-live
-          echo "✅ Déploiement réussi !"
+          echo "🚀 Déploiement vers Shopify..."
+          echo "Boutique: thepetsociety.paris"
+          echo "ID du thème: ${{ secrets.SHOPIFY_THEME_ID }}"
+          shopify theme push --path=. --store=thepetsociety.paris --theme=${{ secrets.SHOPIFY_THEME_ID }} --allow-live --verbose
+          echo "✅ Déploiement réussi!"
 
   notify_failure_if_any:
     needs: deploy
@@ -37,22 +46,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Notify Sentry of failure
-        env:
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          GITHUB_WORKFLOW: ${{ github.workflow }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_RUN_ID: ${{ github.run_id }}
-          GITHUB_RUN_NUMBER: ${{ github.run_number }}
-          GITHUB_SHA: ${{ github.sha }}
         run: |
+          echo "🚨 Envoi de la notification d'échec à Sentry"
           EVENT_ID=$(uuidgen)
-          TIMESTAMP=$(date +%s)
-          echo "🚨 Échec du déploiement, notification à Sentry..."
-          curl -X POST "https://sentry.io/api/0/organizations/falcon-trading/releases/" \
-            -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d "{
-              \"version\": \"vortex-$GITHUB_RUN_NUMBER\",
-              \"projects\": [\"falcon-trading-sp\"]
-            }"
-          echo "📬 Notification envoyée."
+          PAYLOAD=$(cat <<EOF
+          {
+            "event_id": "$EVENT_ID",
+            "timestamp": $(date +%s),
+            "platform": "other",
+            "message": "Échec du déploiement Shopify via GitHub Actions",
+            "level": "error",
+            "logger": "github-actions",
+            "server_name": "github-actions",
+            "release": "${{ github.sha }}",
+            "tags": {
+              "workflow": "${{ github.workflow }}",
+              "repository": "${{ github.repository }}"
+            },
+            "extra": {
+              "run_id": "${{ github.run_id }}",
+              "run_number": "${{ github.run_number }}"
+            }
+          }
+          EOF
+          )
+          curl -v -X POST "https://o4509330673303552.ingest.sentry.io/api/4509534073585744/envelope/" \
+            -H "Content-Type: application/x-sentry-envelope" \
+            -H "Authorization: DSN ${{ secrets.SENTRY_AUTH_TOKEN }}" \
+            -d "$PAYLOAD"
+          echo "📬 Notification envoyée à Sentry"
