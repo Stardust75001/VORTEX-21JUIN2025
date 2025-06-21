@@ -38,17 +38,13 @@ jobs:
     steps:
       - name: Notify Sentry of failure
         run: |
-          curl https://o4509330673303552.ingest.de.sentry.io/api/4509534073585744/envelope/ \
-          -X POST \
+          curl -X POST https://o4509330673303552.ingest.de.sentry.io/api/4509534073585744/envelope/ \
           -H "Content-Type: application/json" \
-          --data-raw "$(cat <<EOF
-          {
+          --data-raw "{
             \"dsn\": \"https://5d6ea3eb04284ce2f254e29083d3ddf7@o4509330673303552.ingest.de.sentry.io/4509534073585744\",
             \"event_id\": \"$(uuidgen)\",
             \"message\": \"🚨 Échec du déploiement Shopify via GitHub Actions\",
             \"level\": \"error\",
             \"platform\": \"other\",
             \"timestamp\": $(date +%s)
-          }
-EOF
-          )"
+          }"
