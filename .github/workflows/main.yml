@@ -17,32 +17,29 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'false'
 
       - name: Install Shopify CLI
-        run: npm install -g @shopify/cli @shopify/theme
+        run: npm install -g @shopify/cli
 
       - name: Validate theme
         env:
-          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHORTLY_PASSWORD }}
-        run: shopify theme check
+          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
+          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
+        run: shopify theme check --store=$SHOPIFY_STORE --theme=$SHOPIFY_THEME_ID
 
       - name: Deploy theme to Shopify
         env:
-          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHORTLY_PASSWORD }}
+          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
+          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
         run: |
-          echo "🚀 Déploiement vers Shopify..."
-          echo "Boutique: thepetsociety.paris"
-          echo "ID du thème: ${{ secrets.SHORTLY_THERE_ID }}"
-          
           shopify theme push \
             --path=. \
-            --store=thepetsociety.paris \
-            --theme=${{ secrets.SHORTLY_THERE_ID }} \
-            --allow-live \
-            --verbose
-          
-          echo "✅ Déploiement réussi!"
+            --store=$SHOPIFY_STORE \
+            --theme=$SHOPIFY_THEME_ID \
+            --allow-live
 
   notify_failure_if_any:
     needs: deploy
@@ -51,38 +48,15 @@ jobs:
     steps:
       - name: Notify Sentry of failure
         run: |
-          echo "🚨 Envoi de la notification d'échec à Sentry"
-          
-          # Générer l'event ID
-          EVENT_ID=$(uuidgen)
-          
-          # Créer le payload au format correct pour Sentry
-          PAYLOAD=$(cat <<EOF
-          {
-            "event_id": "$EVENT_ID",
-            "timestamp": $(date +%s),
-            "platform": "other",
-            "message": "Échec du déploiement Shopify via GitHub Actions",
-            "level": "error",
-            "logger": "github-actions",
-            "server_name": "github-actions",
-            "release": "${{ github.sha }}",
-            "tags": {
-              "workflow": "${{ github.workflow }}",
-              "repository": "${{ github.repository }}"
-            },
-            "extra": {
-              "run_id": "${{ github.run_id }}",
-              "run_number": "${{ github.run_number }}"
-            }
-          }
-          EOF
-          )
-          
-          # Envoyer la requête à Sentry
-          curl -v -X POST "https://o4509330673303552.ingest.sentry.io/api/4509534073585744/envelope/" \
-            -H "Content-Type: application/x-sentry-envelope" \
-            -H "Authorization: DSN ${{ secrets.SHORTLY_STORE }}" \
-            -d "$PAYLOAD"
-          
-          echo "📬 Notification envoyée à Sentry"
+          curl -X POST https://o4509330673303552.ingest.sentry.io/api/4509534073585744/store/ \
+            -H "Authorization: Bearer ${{ secrets.SENTRY_AUTH_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "message": "Déploiement Shopify échoué",
+              "level": "error",
+              "platform": "github-actions",
+              "extra": {
+                "run_id": "${{ github.run_id }}",
+                "run_number": "${{ github.run_number }}"
+              }
+            }'
