@@ -10,27 +10,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Deploy theme with Shopify CLI Docker
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Shopify CLI
+        run: npm install -g @shopify/cli @shopify/theme
+
+      - name: Deploy theme to Shopify
         run: |
-          docker run --rm \
-            -v "$PWD:/app" \
-            -w /app \
-            shopify/shopify-cli:latest \
-            theme push \
+          shopify theme push \
             --store ${{ secrets.SHOPIFY_STORE }} \
             --password ${{ secrets.SHOPIFY_PASSWORD }} \
+            --theme "VORTEX - 21JUIN2025" \
             --path . \
             --unpublished
 
       - name: Notify Sentry of deployment
         run: |
           curl https://sentry.io/api/0/organizations/falcon-trading/releases/ \
-          -H "Authorization: Bearer ${{ secrets.SENTRY_AUTH_TOKEN }}" \
-          -H "Content-Type: application/json" \
-          -d '{
-            "version": "vortex-${{ github.run_number }}",
-            "projects": ["falcon-trading-sp"]
-          }'
+            -H "Authorization: Bearer ${{ secrets.SENTRY_AUTH_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "version": "vortex-${{ github.run_number }}",
+              "projects": ["falcon-trading-sp"]
+            }'
