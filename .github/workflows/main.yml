@@ -28,7 +28,7 @@ jobs:
           SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}
           THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
         run: |
-          shopify theme push --store $SHOPIFY_STORE --theme-id $THEME_ID --allow-live --path=.
+          shopify theme push --store=$SHOPIFY_STORE --allow-live --theme=$THEME_ID --path=.
 
   notify_failure_if_any:
     name: Notify Sentry if deployment fails
