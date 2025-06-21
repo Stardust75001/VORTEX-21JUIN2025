@@ -19,12 +19,12 @@ jobs:
           shopify_store: f6d72e-0f.myshopify.com
           theme_name: "VORTEX - 21JUIN2025"
           password: ${{ secrets.SHOPIFY_PASSWORD }}
-      - name: Notify Sentry of deployment
-        run: |
-          curl -X POST https://sentry.io/api/0/organizations/falcon-trading/releases/ \
-          -H "Authorization: Bearer ${{ secrets.SENTRY_AUTH_TOKEN }}" \
-          -H "Content-Type: application/json" \
-          -d '{
-            "version": "vortex-${{ github.run_number }}",
-            "projects": ["falcon-trading-sp"]
-          }'
+     - name: Notify Sentry of deployment
+  run: |
+    curl https://sentry.io/api/0/organizations/falcon-trading/releases/ \
+    -H "Authorization: Bearer ${{ secrets.SENTRY_AUTH_TOKEN }}" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "version": "vortex-{{ github.run_number }}",
+      "projects": ["falcon-trading-sp"]
+    }'
