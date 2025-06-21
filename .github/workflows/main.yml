@@ -25,9 +25,8 @@ jobs:
       - name: Deploy theme to Shopify
         env:
           SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
-          SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
         run: |
-          shopify theme push --path=. --store=thepetsociety.paris --allow-live
+          shopify theme push --path=. --store=thepetsociety.paris --theme-id=183094706524 --allow-live
 
   notify_failure_if_any:
     name: Notify Sentry if deployment fails
