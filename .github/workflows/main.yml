@@ -1,0 +1,21 @@
+name: Deploy to Shopify
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Upload theme to Shopify
+        uses: danielgroen/shopify-theme-upload-action@v1.0.3
+        with:
+          shopify_store: f6d72e-0f.myshopify.com
+          theme_name: "VORTEX - 21JUIN2025"
+          password: ${{ secrets.SHOPIFY_PASSWORD }}
