@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy-to-shopify:
+  deploy:
     name: Deploy to Shopify theme
     runs-on: ubuntu-latest
 
@@ -27,7 +27,7 @@ jobs:
           SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
         run: |
           shopify theme push \
+            --path=./ \
             --store=thepetsociety.paris \
-            --theme-id=${{ secrets.SHOPIFY_THEME_ID }} \
-            --path=. \
+            --theme=${{ secrets.SHOPIFY_THEME_ID }} \
             --allow-live
