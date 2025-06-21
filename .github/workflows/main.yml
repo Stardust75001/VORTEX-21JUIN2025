@@ -10,16 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy to Shopify
-        uses: Shopify/shopify-cli-action@v1
-        with:
-          version: latest
-        env:
-          SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_STORE }}
-          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_PASSWORD }}
+      - name: Deploy theme with Shopify CLI Docker
+        run: |
+          docker run --rm \
+            -v "$PWD:/app" \
+            -w /app \
+            shopify/shopify-cli:latest \
+            theme push \
+            --store ${{ secrets.SHOPIFY_STORE }} \
+            --password ${{ secrets.SHOPIFY_PASSWORD }} \
+            --path . \
+            --unpublished
 
       - name: Notify Sentry of deployment
         run: |
