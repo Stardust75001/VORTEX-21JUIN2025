@@ -13,13 +13,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Upload theme to Shopify
-        uses: nueverest/shopify-upload-theme@v1.0.1
+      - name: Deploy to Shopify
+        uses: Shopify/shopify-cli-action@v1
         with:
-          store: ${{ secrets.SHOPIFY_STORE }}
-          password: ${{ secrets.SHOPIFY_PASSWORD }}
-          theme_id: ${{ secrets.SHOPIFY_THEME_ID }}
-          directory: dist # ou ton dossier de thème
+          version: latest
+        env:
+          SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_PASSWORD }}
 
       - name: Notify Sentry of deployment
         run: |
