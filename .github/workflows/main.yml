@@ -6,36 +6,49 @@ on:
       - main
 
 jobs:
-  deploy:
+  deploy-to-shopify:
+    name: Deploy to Shopify theme
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '20'
 
       - name: Install Shopify CLI
         run: npm install -g @shopify/cli @shopify/theme
 
       - name: Deploy theme to Shopify
+        env:
+          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}
+          THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
         run: |
-          shopify theme push \
-            --store ${{ secrets.SHOPIFY_STORE }} \
-            --password ${{ secrets.SHOPIFY_PASSWORD }} \
-            --theme "VORTEX - 21JUIN2025" \
-            --path . \
-            --unpublished
+          shopify theme push --store $SHOPIFY_STORE --theme-id $THEME_ID --allow-live --path=.
 
-      - name: Notify Sentry of deployment
+  notify_failure_if_any:
+    name: Notify Sentry if deployment fails
+    runs-on: ubuntu-latest
+    needs: [deploy-to-shopify]
+    if: failure()
+    steps:
+      - name: Notify Sentry of failure
         run: |
-          curl https://sentry.io/api/0/organizations/falcon-trading/releases/ \
-            -H "Authorization: Bearer ${{ secrets.SENTRY_AUTH_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            -d '{
-              "version": "vortex-${{ github.run_number }}",
-              "projects": ["falcon-trading-sp"]
-            }'
+          curl https://o4509330673303552.ingest.de.sentry.io/api/4509534073585744/envelope/ \
+          -X POST \
+          -H "Content-Type: application/json" \
+          --data-raw "$(cat <<EOF
+          {
+            \"dsn\": \"https://5d6ea3eb04284ce2f254e29083d3ddf7@o4509330673303552.ingest.de.sentry.io/4509534073585744\",
+            \"event_id\": \"$(uuidgen)\",
+            \"message\": \"🚨 Échec du déploiement Shopify via GitHub Actions\",
+            \"level\": \"error\",
+            \"platform\": \"other\",
+            \"timestamp\": $(date +%s)
+          }
+EOF
+          )"
