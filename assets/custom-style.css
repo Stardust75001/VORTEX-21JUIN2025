@@ -225,7 +225,7 @@ main {
     background: transparent !important;
   }
   main {
-    padding-top: 10px !important; /* Ajustez selon la hauteur réelle du header sticky sur mobile */
+    padding-top: 300px !important; /* Ajustez selon la hauteur réelle du header sticky sur mobile */
   }
 }
 
