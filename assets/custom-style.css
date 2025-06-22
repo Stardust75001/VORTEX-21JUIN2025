@@ -239,7 +239,7 @@ main {
     display: block;
   }
   main {
-    padding-top: 270px !important; /* Augmente la valeur pour bien dégager l'image sous le header sur mobile */
+    padding-top: 275px !important; /* Augmente la valeur pour bien dégager l'image sous le header sur mobile */
   }
 }
 
