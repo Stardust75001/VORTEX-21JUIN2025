@@ -13,7 +13,7 @@
 }
 
 main {
-  padding-top: 30px !important; /* Augmente la valeur pour baisser l'image sur desktop */
+  padding-top: 320px !important; /* Augmente la valeur pour baisser l'image sur desktop */
 }
 
 /* === Social Bar === */
