@@ -238,7 +238,7 @@ main {
     display: block;
   }
   main {
-    padding-top:280px !important; /* Augmente la valeur pour bien dégager l'image sous le header sur mobile */
+    padding-top:250px !important; /* Augmente la valeur pour bien dégager l'image sous le header sur mobile */
   }
 }
 
