@@ -282,3 +282,15 @@ main {
     font-size: 12px;
   }
 }
+
+/* === Homepage Specific Styles === */
+.homepage-main .image-banner-wrapper {
+  /* Réglages spécifiques à l'image de la homepage */
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  /* ...autres styles spécifiques homepage... */
+}
+
+.homepage-main .image-banner-img {
+  /* Styles spécifiques homepage */
+}
