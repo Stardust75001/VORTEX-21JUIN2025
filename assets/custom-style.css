@@ -238,7 +238,7 @@ main {
     display: block;
   }
   main {
-    padding-top: 120px !important; /* Mobile : ajuste selon la hauteur réelle du header sticky mobile */
+    padding-top: 170px !important; /* Augmente la valeur pour bien dégager l'image sous le header sur mobile */
   }
 }
 
@@ -247,6 +247,6 @@ main {
     margin-top: 0 !important;
   }
   main {
-    padding-top: 260px !important;
+    padding-top: 300px !important; /* Laisse plus d'espace sous le header sur desktop */
   }
 }
