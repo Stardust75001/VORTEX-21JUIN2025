@@ -13,7 +13,7 @@
 }
 
 main {
-  padding-top: 370px !important; /* Augmente la valeur pour baisser l'image sur desktop */
+  padding-top: 320px !important; /* Augmente la valeur pour baisser l'image sur desktop */
 }
 
 /* === Social Bar === */
@@ -124,6 +124,7 @@ main {
   opacity: 0;
   pointer-events: none;
   position: absolute;
+  top: 48px; /* Décale l'infobulle sous la navbar sticky (ajuste selon la hauteur de ta barre) */
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(15, 99, 120, 0.95);
@@ -238,7 +239,7 @@ main {
     display: block;
   }
   main {
-    padding-top:275px !important; /* Augmente la valeur pour bien dégager l'image sous le header sur mobile */
+    padding-top: 220px !important; /* Augmente la valeur pour bien dégager l'image sous le header sur mobile */
   }
 }
 
