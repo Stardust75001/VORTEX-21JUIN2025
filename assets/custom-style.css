@@ -228,12 +228,12 @@ main {
   .image-banner-wrapper {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 100 !important;
     padding-bottom: 0 !important;
     background: transparent !important;
   }
   main {
-    padding-top: 320px !important; /* Ajustez selon la hauteur réelle du header sticky sur mobile */
+    padding-top: 120px !important; /* Ajustez selon la hauteur réelle du header sticky sur mobile */
   }
 }
 
