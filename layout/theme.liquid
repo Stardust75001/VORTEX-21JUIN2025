@@ -121,7 +121,7 @@
     {% section 'stories-bar-sticky-dynamic' %}
   </div>
 
-  <main id="main">
+  <main id="main"{% if template.name == 'index' %} class="homepage-main"{% endif %}>
     {{ content_for_layout }}
   </main>
 
