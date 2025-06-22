@@ -239,3 +239,9 @@ main {
 .tooltip-bubble {
   top: -20px !important;
 }
+
+@media screen and (min-width: 769px) {
+  .image-banner-wrapper {
+    margin-top: 120px; /* Ajuste la valeur selon le décalage souhaité */
+  }
+}
