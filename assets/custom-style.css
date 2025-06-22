@@ -64,6 +64,14 @@ main {
   cursor: pointer;
 }
 
+.announcement-bar__left img.flag {
+  border-radius: 50%; /* ou 8px selon le style souhaité */
+}
+
+.announcement-bar__right img.flag {
+  display: none; /* cache les drapeaux à droite */
+}
+
 @media (max-width: 768px) {
   .language-selector-right .flag-icon {
     width: 20px;
@@ -225,7 +233,7 @@ main {
     background: transparent !important;
   }
   main {
-    padding-top: 280px !important; /* Ajustez selon la hauteur réelle du header sticky sur mobile */
+    padding-top: 120px !important; /* Ajustez selon la hauteur réelle du header sticky sur mobile */
   }
 }
 
