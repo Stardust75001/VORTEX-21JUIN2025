@@ -170,12 +170,17 @@ main {
   position: relative;
   width: 100%;
   overflow: hidden;
+  margin-top: 0 !important;      /* Pas d'espace au-dessus */
+  margin-bottom: 0 !important;   /* Pas d'espace en-dessous */
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background: transparent !important;
 }
 
 .image-banner-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
   display: block;
 }
 
@@ -218,44 +223,30 @@ main {
 
 /* === Mobile Adjustments === */
 @media (max-width: 768px) {
+  .image-banner-wrapper {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background: transparent !important;
+  }
   .image-banner-img {
-    display: block;
     width: 100% !important;
     height: auto !important;
     max-height: none !important;
     object-fit: contain !important;
-  }
-  .image-banner-wrapper {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-top: -5000 !important;
-    padding-bottom: 0 !important;
-    background: transparent !important;
+    display: block;
   }
   main {
-    padding-top: 120px !important; /* Ajustez selon la hauteur réelle du header sticky sur mobile */
+    padding-top: 120px !important; /* Mobile : ajuste selon la hauteur réelle du header sticky mobile */
   }
-}
-
-.collection-hero img,
-.collection-banner img {
-  width: 100%;
-  height: auto;
-  object-fit: contain !important;
-  object-position: center;
-  max-height: unset;
-}
-
-/* Forcer la position de l’infobulle */
-.tooltip-bubble {
-  top: -20px !important;
 }
 
 @media screen and (min-width: 769px) {
   .image-banner-wrapper {
-    margin-top: 0 !important; /* plus de décalage supplémentaire */
+    margin-top: 0 !important;
   }
   main {
-    padding-top: 260px !important; /* doit correspondre à la hauteur du header sticky */
+    padding-top: 260px !important;
   }
 }
