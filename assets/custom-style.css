@@ -1,143 +1,296 @@
-{% comment %}
-Section : Stories Bar Sticky Configurable (dynamique via blocks)
-{% endcomment %}
-
-<div class="stories-bar-wrapper">
-  <style>
-    .tooltip-bubble {
-      opacity: 0;
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: {{ section.settings.tooltip_bg }};
-      color: white;
-      padding: 6px 12px;
-      font-size: 14px;
-      border-radius: 4px;
-      z-index: 9999;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      max-width: 90vw;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .tooltip-bubble::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      border: 6px solid transparent;
-      border-top-color: {{ section.settings.tooltip_bg }};
-    }
-    .tooltip-bubble.hover-visible,
-    .tooltip-bubble.tap-visible {
-      opacity: {{ section.settings.tooltip_opacity }};
-      pointer-events: auto;
-    }
-    .animated-stories-link img {
-      width: {{ section.settings.icon_size }}px;
-      height: {{ section.settings.icon_size }}px;
-    }
-    @media (max-width: 768px) {
-      .animated-stories-link img {
-        width: calc({{ section.settings.icon_size }}px / 2);
-        height: calc({{ section.settings.icon_size }}px / 2);
-      }
-    }
-  </style>
-
-  <div class="stories-bar">
-    {% assign lang = request.locale.iso_code %}
-
-    {% case lang %}
-      {% when 'fr' %}{% assign base_url = '/fr/collections/' %}
-      {% when 'de' %}{% assign base_url = '/de/collections/' %}
-      {% else %}{% assign base_url = '/collections/' %}
-    {% endcase %}
-
-    {% for block in section.blocks %}
-      {% assign title = block.settings.title %}
-      {% assign image = block.settings.image | img_url: 'master' %}
-      {% assign link = block.settings.link %}
-      <a href="{{ link | prepend: base_url }}" class="animated-stories-link">
-        <img src="{{ image }}" alt="{{ title }}" />
-        <div class="tooltip-bubble">{{ title }}</div>
-      </a>
-    {% endfor %}
-  </div>
-</div>
-
-{% schema %}
-{
-  "name": "Stories Bar Sticky",
-  "settings": [
-    {
-      "type": "select",
-      "id": "icon_size",
-      "label": "Taille des icônes (px)",
-      "default": "90",
-      "options": [
-        { "value": "60", "label": "60px" },
-        { "value": "90", "label": "90px" },
-        { "value": "120", "label": "120px" }
-      ]
-    },
-    {
-      "type": "color",
-      "id": "tooltip_bg",
-      "label": "Couleur de fond de l'infobulle",
-      "default": "#0F6378"
-    },
-    {
-      "type": "range",
-      "id": "tooltip_opacity",
-      "label": "Opacité de l'infobulle",
-      "min": 0.1,
-      "max": 1,
-      "step": 0.1,
-      "default": 1
-    }
-  ],
-  "blocks": [
-    {
-      "type": "story",
-      "name": "Story",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Nom de la collection",
-          "default": "AU SPA"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Icône"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Lien vers la collection"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Stories Bar Sticky",
-      "blocks": [
-        {
-          "type": "story",
-          "settings": {
-            "title": "AU SPA",
-            "image": "shopify://shop_images/SPA_7af8758a-a38b-4803-a287-ec66101e41c2.png",
-            "link": "/spa"
-          }
-        }
-      ]
-    }
-  ]
+/* === Sticky Group Header === */
+.header-sticky-group {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 15000;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
-{% endschema %}
+
+main {
+  padding-top: 320px !important; /* Augmente la valeur pour baisser l'image sur desktop */
+}
+
+/* === Social Bar === */
+.top-social-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #889080;
+  padding: 10px 20px;
+  height: 60px;
+  z-index: 11000;
+  gap: 12px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.social-icons-left,
+.language-selector-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-img-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.social-img-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* === Flag Selector === */
+.language-selector-right a {
+  padding: 0 5px;
+}
+
+.language-selector-right .flag-icon {
+  width: 32px;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.announcement-bar__left img.flag {
+  border-radius: 50%; /* ou 8px selon le style souhaité */
+}
+
+.announcement-bar__right img.flag {
+  display: none; /* cache les drapeaux à droite */
+}
+
+@media (max-width: 768px) {
+  .language-selector-right .flag-icon {
+    width: 20px;
+  }
+}
+
+/* === Stories Bar === */
+.stories-bar-wrapper {
+  width: 100%;
+  background-color: #889080;
+  padding: 10px 0;
+  position: relative;
+  z-index: 12000;
+}
+
+.stories-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.animated-stories-link {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  z-index: 1;
+  isolation: isolate;
+}
+
+.animated-stories-link img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.animated-stories-link:hover img,
+.animated-stories-link.tap-zoom img {
+  transform: scale(1.15);
+}
+
+/* === Tooltip === */
+.tooltip-bubble {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 48px; /* Décale l'infobulle sous la navbar sticky (ajuste selon la hauteur de ta barre) */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(15, 99, 120, 0.95);
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+  max-width: 90vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 99999;
+  visibility: hidden;
+}
+
+.tooltip-bubble::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(15, 99, 120, 0.95);
+}
+
+.tooltip-bubble.hover-visible,
+.tooltip-bubble.tap-visible {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Dernier élément */
+.animated-stories-link:last-child .tooltip-bubble {
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(-100%);
+}
+
+/* === Banner Section === */
+.image-banner-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0 !important;      /* Pas d'espace au-dessus */
+  margin-bottom: 0 !important;   /* Pas d'espace en-dessous */
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background: transparent !important;
+}
+
+.image-banner-img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+.image-banner-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+  width: 90%;
+}
+
+.image-banner-title {
+  font-size: 28px;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.image-banner-description {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-group .btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+/* === Mobile Adjustments === */
+@media (max-width: 768px) {
+  .image-banner-wrapper {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background: transparent !important;
+  }
+  .image-banner-img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    display: block;
+  }
+  main {
+    padding-top: 220px !important; /* Augmente la valeur pour bien dégager l'image sous le header sur mobile */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Ajustements spécifiques pour les écrans de tablette et mobiles */
+  .header-sticky-group {
+    padding-top: 0; /* Pas de padding supplémentaire en haut */
+  }
+
+  .top-social-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 10px;
+  }
+
+  .stories-bar {
+    padding: 4px 8px;
+  }
+
+  .animated-stories-link img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tooltip-bubble {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .image-banner-title {
+    font-size: 24px;
+  }
+
+  .image-banner-description {
+    font-size: 14px;
+  }
+
+  .btn-group .btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
+/* === Homepage Specific Styles === */
+.homepage-main .image-banner-wrapper {
+  /* Réglages spécifiques à l'image de la homepage */
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  /* ...autres styles spécifiques homepage... */
+}
+
+.homepage-main .image-banner-img {
+  /* Styles spécifiques homepage */
+}
