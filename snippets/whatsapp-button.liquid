@@ -1,6 +1,7 @@
 {% comment %}
-    SHOPIWEB - Whatsapp Button - version mobile only
+    SHOPIWEB - Whatsapp Button
     © 2023 Shopiweb Premium
+    https://wwww.shopiweb.fr
 {% endcomment %}
 
 {% if settings.enable_whatsapp %}
@@ -22,19 +23,10 @@
       background-color: {{ settings.dialog_bg_color }};
       {% comment %} background-image: url({{ 'whatsapp-bg.png' | asset_img_url: 'master' }}); {% endcomment %}
     }
-
-    @media screen and (min-width: 769px) {
-      eg-whatsapp-wrapper {
-        display: none !important;
-      }
-    }
   </style>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // ❗️Mobile only
-      if (window.innerWidth > 768) return;
-
       var stickyATC = document.getElementById('sticky-atc');
       var currencySelector = document.getElementById('currency-selector');
       var whatsappWrapper = document.querySelector('.eg-whatsapp-wrapper');
@@ -42,9 +34,13 @@
       function updateWhatsAppWrapperStyle() {
         var bottomValue = '2.2rem';
 
-        if (stickyATC && stickyATC.classList.contains('show')) {
-          bottomValue = '6.2rem';
-          if (currencySelector) bottomValue = '9rem';
+        if (window.innerWidth <= 768) {
+          if (stickyATC && stickyATC.classList.contains('show')) {
+            bottomValue = '6.2rem';
+            if (currencySelector) bottomValue = '9rem';
+          } else {
+            if (currencySelector) bottomValue = '4rem';
+          }
         } else {
           if (currencySelector) bottomValue = '4rem';
         }
