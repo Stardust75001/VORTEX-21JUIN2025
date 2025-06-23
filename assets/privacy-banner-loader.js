@@ -6,15 +6,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const translations = {
     fr: {
       message: "Ce site utilise des cookies pour améliorer votre expérience.",
-      button: "OK"
+      button: "OK",
+      policy: "En savoir plus",
+      policyUrl: "/politiques-de-confidentialite"
     },
     en: {
       message: "This website uses cookies to enhance your experience.",
-      button: "OK"
+      button: "OK",
+      policy: "Learn more",
+      policyUrl: "/policies/privacy-policy"
     },
     de: {
       message: "Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern.",
-      button: "OK"
+      button: "OK",
+      policy: "Mehr erfahren",
+      policyUrl: "/datenschutz"
     }
   };
 
@@ -39,6 +45,9 @@ document.addEventListener("DOMContentLoaded", function () {
   banner.style.flexWrap = "wrap";
   banner.innerHTML = `
     <span style="margin-bottom: 10px;">${t.message}</span>
+    <a href="${t.policyUrl}" target="_blank" rel="noopener" style="margin-left: 10px; color: #fff; text-decoration: underline;">
+      ${t.policy}
+    </a>
     <button id="accept-cookies" style="
       margin-left: 16px;
       background: #000;
