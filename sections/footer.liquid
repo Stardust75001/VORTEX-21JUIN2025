@@ -25,6 +25,11 @@
 {% endstyle %} 
 
 <footer id="footer" class="{{ bg_color }} {{ pt }} {{ pb }}">
+  <div class="footer-logo-wrapper">
+  {% if settings.logo %}
+    <img src="{{ settings.logo | image_url }}" alt="{{ shop.name }}" class="footer-logo-img">
+  {% endif %}
+</div>
     <div class="{{ section.settings.container }}">
         <div id="footer-blocks" class="row mb-10">
             {% if section.settings.show_about_area %}
