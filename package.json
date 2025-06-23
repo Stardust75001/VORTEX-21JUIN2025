@@ -1,12 +1,15 @@
 {
   "name": "shopify-theme-deploy",
   "version": "1.0.0",
-  "description": "Auto deploy to Shopify from GitHub",
-  "private": true,
+  "description": "Déploiement Shopify CLI via GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "push": "shopify theme push --path ."
+  },
+  "author": "thepetsociety.paris",
   "license": "MIT",
-  "scripts": {},
   "devDependencies": {
-    "@shopify/cli": "^3.53.2",
-    "@shopify/theme": "^3.53.2"
+    "@shopify/cli": "^3.50.0",
+    "@shopify/theme": "^3.50.0"
   }
 }
