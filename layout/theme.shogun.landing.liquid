@@ -89,7 +89,7 @@ This file can be re-written at any time.
   {% render 'shogun-head' %}
 
   <!-- ✅ Chargement JS bulles avec defer -->
-  {{ 'stories-tooltips.js' | asset_url | script_tag }}
+  <script src="{{ 'stories-tooltips.js' | asset_url }}" defer></script>
 </head>
   <body class="{{ request.page_type | prepend: 'page-type-' }}">
     {% render 'shogun-content-handler' %}
