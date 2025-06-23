@@ -92,7 +92,7 @@ This file can be re-written at any time.
   {{ 'stories-tooltips.js' | asset_url | script_tag }}
 </head>
   <body class="{{ request.page_type | prepend: 'page-type-' }}">
-    {% include 'shogun-content-handler' %}
+    {% render 'shogun-content-handler' %}
 
     
     
