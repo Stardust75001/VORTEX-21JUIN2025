@@ -1,30 +1,46 @@
-<div class="top-social-bar">
-  <div class="social-icons-left">
-    <a href="https://www.instagram.com/spencerandthecity/" target="_blank">
-      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/instagram.png?v=1745524276" alt="Instagram" class="social-img-icon">
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=61573834333893" target="_blank">
-      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/facebook.png?v=1745524263" alt="Facebook" class="social-img-icon">
-    </a>
-    <a href="https://www.tiktok.com/@thepetsociety_paris" target="_blank">
-      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/tiktok.png?v=1745524249" alt="TikTok" class="social-img-icon">
-    </a>
-    <a href="https://wa.me/33769238799" target="_blank">
-      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/WhatsApp.png?v=1745524257" alt="WhatsApp" class="social-img-icon">
-    </a>
-    <a href="mailto:hello@thepetsociety.paris">
-      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/mail.png?v=1745524212" alt="Email" class="social-img-icon">
-    </a>
+{% comment %}
+Section : Image avec texte + boutons (responsive, image mobile dédiée, no-gap auto)
+{% endcomment %}
+
+{% liquid
+  assign mt = section.settings.mt | prepend: 'mt-'
+  assign mb = section.settings.mb | prepend: 'mb-'
+  assign pt = section.settings.pt | prepend: 'pt-'
+  assign pb = section.settings.pb | prepend: 'pb-'
+  assign custom_class = section.settings.custom_class
+%}
+
+<section class="image-banner-wrapper custom-image-banner-class {{ custom_class }} {{ mt }} {{ mb }} {{ pt }} {{ pb }}">
+  {% if section.settings.image != blank or section.settings.image_mobile != blank %}
+    <picture>
+      {% if section.settings.image_mobile != blank %}
+        <source media="(max-width: 768px)" srcset="{{ section.settings.image_mobile | image_url: width: 800 }}">
+      {% endif %}
+      <img src="{{ section.settings.image | image_url: width: 1920 }}"
+           alt="{{ section.settings.title | escape }}"
+           loading="lazy"
+           class="image-banner-img">
+    </picture>
+  {% endif %}
+
+  <div class="image-banner-overlay">
+    {% if section.settings.title != blank %}
+      <h2 class="image-banner-title">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if section.settings.text != blank %}
+      <p class="image-banner-text">{{ section.settings.text }}</p>
+    {% endif %}
+    <div class="image-banner-buttons">
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="btn btn-primary">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+      {% if section.settings.button_label_2 != blank and section.settings.button_link_2 != blank %}
+        <a href="{{ section.settings.button_link_2 }}" class="btn btn-secondary">
+          {{ section.settings.button_label_2 }}
+        </a>
+      {% endif %}
+    </div>
   </div>
-<div class="language-selector-right">
-  <a href="/" aria-label="English">
-    <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/US_FLAG.jpg?v=1747010572" alt="English" class="flag-icon" />
-  </a>
-  <a href="/fr" aria-label="Français">
-    <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/FR_FLAG.jpg?v=1747010571" alt="Français" class="flag-icon" />
-  </a>
-  <a href="/de" aria-label="Deutsch">
-    <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/DE_FLAG.jpg?v=1747010571" alt="Deutsch" class="flag-icon" />
-   </a>
-</div> <!-- .language-selector-right -->
-</div> <!-- .top-social-bar -->
+</section>
