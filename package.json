@@ -1,0 +1,12 @@
+{
+  "name": "shopify-theme-deploy",
+  "version": "1.0.0",
+  "description": "Auto deploy to Shopify from GitHub",
+  "private": true,
+  "license": "MIT",
+  "scripts": {},
+  "devDependencies": {
+    "@shopify/cli": "^3.53.2",
+    "@shopify/theme": "^3.53.2"
+  }
+}
