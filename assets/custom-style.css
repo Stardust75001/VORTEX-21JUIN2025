@@ -111,10 +111,8 @@ main {
 
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
-  opacity: 0;
-  pointer-events: none;
   position: absolute;
-  top: 100px;
+  top: 110%; /* S'affiche en dessous de l'icône */
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(15, 99, 120, 0.95);
@@ -130,22 +128,24 @@ main {
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 99999;
   visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .tooltip-bubble::after {
   content: "";
   position: absolute;
-  top: 100%;
+  top: -6px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(180deg);
   border: 6px solid transparent;
   border-top-color: rgba(15, 99, 120, 0.95);
 }
 
 .tooltip-bubble.hover-visible,
 .tooltip-bubble.tap-visible {
-  opacity: 1;
   visibility: visible;
+  opacity: 1;
   pointer-events: auto;
 }
 
