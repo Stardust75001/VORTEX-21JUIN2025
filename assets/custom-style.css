@@ -314,3 +314,12 @@ main {
   height: 48px !important;
   vertical-align: middle !important;
 }
+.tooltip-bubble.hover-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-bubble.tap-visible {
+  opacity: 1;
+  visibility: visible;
+}
