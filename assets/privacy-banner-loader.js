@@ -1,6 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("cookieAccepted")) return;
 
+  // Langue dynamique injectée par Shopify
+  const locale = document.documentElement.lang || "en";
+
+  // Textes selon la langue
+  const translations = {
+    fr: {
+      message: "Ce site utilise des cookies pour améliorer votre expérience.",
+      button: "OK"
+    },
+    en: {
+      message: "This website uses cookies to enhance your experience.",
+      button: "OK"
+    },
+    de: {
+      message: "Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern.",
+      button: "OK"
+    }
+  };
+
+  const t = translations[locale] || translations["en"];
+
   const banner = document.createElement("div");
   banner.id = "privacy-banner";
   banner.style.position = "fixed";
@@ -15,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
   banner.style.zIndex = "9999";
   banner.style.boxShadow = "0 -2px 10px rgba(0,0,0,0.3)";
   banner.innerHTML = `
-    Ce site utilise des cookies pour améliorer votre expérience. 
+    ${t.message}
     <button id="accept-cookies" style="
       margin-left: 12px;
       background: #fff;
@@ -24,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       border: none;
       cursor: pointer;
       font-weight: bold;
-    ">OK</button>
+    ">${t.button}</button>
   `;
 
   document.body.appendChild(banner);
