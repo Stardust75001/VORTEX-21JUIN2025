@@ -199,20 +199,16 @@
 
         <div id="footer-copyright" class="small text-center">
             <div class="row align-items-center">
-                <div class="col-lg-4">
- <div class="col-12 mb-3">
-  <div class="footer-social-icons">
-    <img src="{{ 'icon-instagram.svg' | asset_url }}" alt="Instagram">
-    <img src="{{ 'icon-facebook.svg' | asset_url }}" alt="Facebook">
-    <img src="{{ 'icon-tiktok.svg' | asset_url }}" alt="TikTok">
-  </div>
-</div>
-                </div>
-                <div class="col-lg-4 mb-3 mb-lg-0">
-                    <p class="mb-0 small">
-                        &copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. {{ 'general.all_rights_reserved' | t }}
-                  
-
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center">
+                  <div class="footer-social-icons">
+                    <img src="{{ 'icon-instagram.svg' | asset_url }}" alt="Instagram">
+                    <img src="{{ 'icon-facebook.svg' | asset_url }}" alt="Facebook">
+                    <img src="{{ 'icon-tiktok.svg' | asset_url }}" alt="TikTok">
+                  </div>
+                  <p class="mb-0 small">
+                    &copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. {{ 'general.all_rights_reserved' | t }}
+                  </p>
                 </div>
                 <div class="col-lg-4">
                     {% if section.settings.show_payment_icons %}
