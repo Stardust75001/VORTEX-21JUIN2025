@@ -30,7 +30,7 @@
   {{ content_for_header }}
   <script src="{{ 'privacy-banner-loader.js' | asset_url }}" defer></script>
 
-  <script src="https://browser.sentry-cdn.com/7.92.0/bundle.tracing.min.js" crossorigin="anonymous"></script>
+  <script src="https://browser.sentry-cdn.com/7.92.0/bundle.tracing.min.js" crossorigin="anonymous" defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       if (window.Sentry) {
