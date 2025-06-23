@@ -297,18 +297,20 @@ main {
 
 /* === Footer Social Icons === */
 .footer-social-icons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  margin: 24px 0;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 24px !important;
+  margin: 24px 0 !important;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .footer-social-icons img,
 .footer-social-icons svg {
-  display: inline-block;
-  width: 48px;
-  height: 48px;
-  vertical-align: middle;
+  display: inline-block !important;
+  width: 48px !important;
+  height: 48px !important;
+  vertical-align: middle !important;
 }
