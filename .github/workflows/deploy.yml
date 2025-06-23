@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Shopify CLI (v2.36.0 compatible avec --password)
-        run: npm install -g @shopify/cli@2.36.0 @shopify/theme
+      - name: Install Shopify CLI v3
+        run: npm install -g @shopify/cli@3 @shopify/theme
 
       - name: Deploy to Shopify
         run: |
