@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("cookieAccepted")) return;
 
-  // Langue dynamique injectée par Shopify
   const locale = document.documentElement.lang || "en";
 
-  // Textes selon la langue
   const translations = {
     fr: {
       message: "Ce site utilise des cookies pour améliorer votre expérience.",
@@ -28,23 +26,28 @@ document.addEventListener("DOMContentLoaded", function () {
   banner.style.bottom = "0";
   banner.style.left = "0";
   banner.style.width = "100%";
-  banner.style.background = "#000";
+  banner.style.background = "#ba986e";
   banner.style.color = "#fff";
-  banner.style.padding = "12px";
+  banner.style.padding = "14px 20px";
   banner.style.textAlign = "center";
-  banner.style.fontSize = "14px";
+  banner.style.fontSize = "15px";
   banner.style.zIndex = "9999";
-  banner.style.boxShadow = "0 -2px 10px rgba(0,0,0,0.3)";
+  banner.style.boxShadow = "0 -2px 8px rgba(0,0,0,0.2)";
+  banner.style.display = "flex";
+  banner.style.justifyContent = "center";
+  banner.style.alignItems = "center";
+  banner.style.flexWrap = "wrap";
   banner.innerHTML = `
-    ${t.message}
+    <span style="margin-bottom: 10px;">${t.message}</span>
     <button id="accept-cookies" style="
-      margin-left: 12px;
-      background: #fff;
-      color: #000;
-      padding: 6px 12px;
+      margin-left: 16px;
+      background: #000;
+      color: #fff;
+      padding: 6px 14px;
       border: none;
+      border-radius: 4px;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: 600;
     ">${t.button}</button>
   `;
 
