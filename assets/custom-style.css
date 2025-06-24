@@ -27,6 +27,7 @@ main {
   z-index: 11000;
   overflow-x: auto;
   white-space: nowrap;
+  flex-wrap: wrap;
 }
 
 .top-social-left,
@@ -36,6 +37,7 @@ main {
   gap: 12px;
 }
 
+/* Social Icons */
 .social-img-icon,
 .top-social-bar img {
   width: 40px;
@@ -247,20 +249,28 @@ main {
 /* === Responsive Mobile Adjustments === */
 @media (max-width: 768px) {
   main {
-    padding-top: 220px !important;
+    padding-top: 260px !important;
   }
 
   .top-social-bar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     height: auto;
     padding: 8px 10px;
     gap: 10px;
   }
 
+  .top-social-left,
+  .top-social-right {
+    flex: 1 1 100%;
+    justify-content: space-between;
+  }
+
   .top-social-bar img {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
   }
 
   .top-social-right .flag-icon {
