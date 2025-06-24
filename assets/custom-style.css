@@ -21,7 +21,7 @@ main {
 /* === Top Social Bar === */
 .top-social-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* ✅ Clé pour mettre les drapeaux à droite */
   align-items: center;
   background-color: #889080;
   padding: 10px 20px;
@@ -36,7 +36,8 @@ main {
 .language-selector-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 10px; /* ou 8px selon votre besoin */
+  /* plus de margin-left: auto */
 }
 
 .social-img-icon,
@@ -260,8 +261,9 @@ main {
   }
 
   .top-social-bar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     padding: 8px 10px;
   }
 
@@ -318,4 +320,32 @@ main {
   .only-desktop {
     display: none;
   }
+}
+/* === Correction : Barre sociale === */
+.top-social-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* centrer verticalement les éléments */
+  background-color: #889080;
+  padding: 10px 20px;
+  height: 60px; /* assure une hauteur suffisante */
+  z-index: 11000;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 12px;
+}
+
+.social-icons-left,
+.language-selector-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Images d’icônes */
+.social-img-icon,
+.top-social-bar img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
