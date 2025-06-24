@@ -30,22 +30,15 @@ main {
   gap: 12px;
 }
 
-.footer-social-icons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex: 1;
-}
-
 .social-icons-left,
-.top-social-right {
+.language-selector-right {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .social-icons-left img,
-.top-social-right img {
+.language-selector-right img {
   width: 40px;
   height: 40px;
   object-fit: contain;
@@ -55,16 +48,12 @@ main {
 }
 
 .social-icons-left img:hover,
-.top-social-right img:hover {
+.language-selector-right img:hover {
   transform: scale(1.1);
   opacity: 0.8;
 }
 
-.top-social-right a {
-  padding: 0;
-}
-
-.top-social-right img {
+.language-selector-right img {
   border-radius: 4px;
   border: 1px solid #ccc;
 }
@@ -241,16 +230,13 @@ main {
   }
 
   .social-icons-left img,
-  .top-social-right img {
+  .language-selector-right img {
     width: 22px;
     height: 22px;
   }
 
-  .social-icons-left {
-    gap: 6px;
-  }
-
-  .top-social-right {
+  .social-icons-left,
+  .language-selector-right {
     gap: 6px;
   }
 
@@ -279,12 +265,6 @@ main {
   .btn-group .btn {
     padding: 8px 16px;
     font-size: 12px;
-  }
-
-  .footer-social-icons a img,
-  .footer-flags .flag-icon img {
-    width: 24px;
-    height: 24px;
   }
 }
 
