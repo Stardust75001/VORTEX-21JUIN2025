@@ -319,7 +319,11 @@ main {
   }
 }
 .language-selector-right img {
-  border-radius: 4px;
+ width: 40px;
+  height: auto;
+  aspect-ratio: 3 / 2;          /* ✅ Format drapeau standard */
+  border-radius: 6px;           /* ✅ Coins arrondis */
+  object-fit: cover;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
