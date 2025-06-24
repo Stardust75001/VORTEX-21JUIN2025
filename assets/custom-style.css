@@ -25,7 +25,7 @@ main {
   padding: 10px 20px;
   height: 60px;
   z-index: 11000;
-  overflow-x: hidden;
+  overflow-x: auto;
   white-space: nowrap;
   gap: 12px;
 }
@@ -37,8 +37,8 @@ main {
   gap: 10px;
 }
 
-.social-icons-left img,
-.language-selector-right img {
+.social-img-icon,
+.top-social-bar img {
   width: 40px;
   height: 40px;
   object-fit: contain;
@@ -47,15 +47,27 @@ main {
   cursor: pointer;
 }
 
-.social-icons-left img:hover,
-.language-selector-right img:hover {
+.social-img-icon:hover,
+.top-social-bar img:hover {
   transform: scale(1.1);
   opacity: 0.8;
 }
 
-.language-selector-right img {
+.language-selector-right a {
+  padding: 0 5px;
+}
+
+.language-selector-right .flag-icon {
   border-radius: 4px;
   border: 1px solid #ccc;
+}
+
+.announcement-bar__left img.flag {
+  border-radius: 50%;
+}
+
+.announcement-bar__right img.flag {
+  display: none;
 }
 
 /* === Stories Bar === */
@@ -116,7 +128,7 @@ main {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 16000;
+  z-index: 99999;
   visibility: hidden;
 }
 
@@ -135,7 +147,6 @@ main {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  touch-action: manipulation;
 }
 
 .animated-stories-link:last-child .tooltip-bubble {
@@ -198,6 +209,37 @@ main {
   border-radius: 4px;
 }
 
+/* === Footer Social Icons === */
+.footer-social-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-social-icons > a {
+  margin-right: 8px; /* espace réduit entre icônes */
+}
+
+.footer-social-icons > a:last-child {
+  margin-right: 0;
+}
+
+.footer-flags {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.flag-icon img {
+  border-radius: 8px !important; /* coins arrondis pour tous les drapeaux */
+  border: 1px solid #ccc;
+  width: 32px;
+  height: 24px;
+  object-fit: cover;
+  background: #fff;
+}
+
 /* === Footer Logo Wrapper === */
 .footer-logo-wrapper {
   display: flex;
@@ -223,21 +265,19 @@ main {
   }
 
   .top-social-bar {
-    padding: 6px 10px;
-    flex-direction: row;
-    justify-content: space-between;
-    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 10px;
   }
 
-  .social-icons-left img,
-  .language-selector-right img {
-    width: 22px;
-    height: 22px;
+  .top-social-bar img,
+  .social-img-icon {
+    width: 20px;
+    height: 20px;
   }
 
-  .social-icons-left,
-  .language-selector-right {
-    gap: 6px;
+  .language-selector-right .flag-icon {
+    width: 20px;
   }
 
   .stories-bar {
@@ -265,6 +305,16 @@ main {
   .btn-group .btn {
     padding: 8px 16px;
     font-size: 12px;
+  }
+
+  .footer-social-bar {
+    padding: 0 8px;
+    height: 56px;
+  }
+  .footer-social-icons a img,
+  .footer-flags .flag-icon img {
+    width: 28px;
+    height: 28px;
   }
 }
 
