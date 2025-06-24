@@ -317,3 +317,45 @@ main {
     display: none;
   }
 }
+.top-social-bar {
+  display: flex;
+  align-items: center;
+  background-color: #889080; /* ou autre */
+  padding: 8px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.social-icons-left {
+  display: flex;
+  gap: 10px;
+}
+
+.language-selector-right {
+  display: flex;
+  gap: 10px;
+  margin-left: auto; /* 🚀 push vers la droite */
+}
+
+.top-social-bar img {
+  width: 40px;
+  height: auto;
+  filter: grayscale(100%);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.top-social-bar a:hover img {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+@media screen and (max-width: 768px) {
+  .top-social-bar {
+    padding: 6px 12px;
+  }
+
+  .top-social-bar img {
+    width: 20px;
+  }
+}
