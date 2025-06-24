@@ -271,7 +271,7 @@ main {
   .social-icons-left {
     flex: 1;
     display: flex;
-    gap: 6px;
+    gap: 4px; /* <-- ici on resserre l'espacement */
   }
 
   .language-selector-right {
