@@ -1,4 +1,10 @@
-/* === Sticky Header Group === */
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+  margin-right: 16px;
+}/* === Sticky Header Group === */
 .header-sticky-group {
   position: fixed;
   top: 0;
@@ -209,28 +215,39 @@ main {
   border-radius: 4px;
 }
 
-/* === Footer Social Icons === */
+/* === Footer Social Bar (ajout pour alignement) === */
+.footer-social-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 8px;
+  height: 56px;
+}
+
+/* Met à jour .footer-social-icons pour ne plus prendre toute la largeur */
 .footer-social-icons {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
-  gap: 24px;
-  margin: 24px 0;
-  max-width: 100vw;
+  gap: 8px;
+  width: auto;
+  margin-right: 16px;
 }
 
-.footer-social-icons > * {
-  margin: 0;
-  padding: 0;
+/* Les flags restent à droite grâce à margin-left:auto */
+.footer-flags {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
 }
 
-.footer-social-icons img,
-.footer-social-icons svg {
-  width: 48px;
-  height: 48px;
-  display: inline-block;
-  vertical-align: middle;
+.flag-icon img {
+  border-radius: 8px !important; /* coins arrondis pour tous les drapeaux */
+  border: 1px solid #ccc;
+  width: 32px;
+  height: 24px;
+  object-fit: cover;
+  background: #fff;
 }
 
 /* === Footer Logo Wrapper === */
@@ -254,7 +271,7 @@ main {
 /* === Responsive Mobile Adjustments === */
 @media (max-width: 768px) {
   main {
-    padding-top: 220px !important;
+    padding-top: 320px !important;
   }
 
   .top-social-bar {
@@ -299,6 +316,16 @@ main {
     padding: 8px 16px;
     font-size: 12px;
   }
+
+  .footer-social-bar {
+    padding: 0 8px;
+    height: 56px;
+  }
+  .footer-social-icons a img,
+  .footer-flags .flag-icon img {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 /* === Affichage conditionnel Desktop / Mobile === */
@@ -316,4 +343,17 @@ main {
   .only-desktop {
     display: none;
   }
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.language-selector-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes flags to the right */
+  gap: 8px;
 }
