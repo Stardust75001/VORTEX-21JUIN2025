@@ -25,20 +25,26 @@ main {
   padding: 10px 20px;
   height: 60px;
   z-index: 11000;
-  overflow-x: auto;
+  overflow-x: hidden;
   white-space: nowrap;
-  gap: 12px;
+}
+
+.footer-social-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
 }
 
 .social-icons-left,
-.language-selector-right {
+.language-icons-right {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.social-img-icon,
-.top-social-bar img {
+.social-icons-left img,
+.language-icons-right img {
   width: 40px;
   height: 40px;
   object-fit: contain;
@@ -47,27 +53,20 @@ main {
   cursor: pointer;
 }
 
-.social-img-icon:hover,
-.top-social-bar img:hover {
+.social-icons-left img:hover,
+.language-icons-right img:hover {
   transform: scale(1.1);
   opacity: 0.8;
 }
 
-.language-selector-right a {
-  padding: 0 5px;
+/* === Language flags === */
+.language-icons-right a {
+  padding: 0;
 }
 
-.language-selector-right .flag-icon {
+.language-icons-right img {
   border-radius: 4px;
   border: 1px solid #ccc;
-}
-
-.announcement-bar__left img.flag {
-  border-radius: 50%;
-}
-
-.announcement-bar__right img.flag {
-  display: none;
 }
 
 /* === Stories Bar === */
@@ -209,37 +208,6 @@ main {
   border-radius: 4px;
 }
 
-/* === Footer Social Icons === */
-.footer-social-icons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.footer-social-icons > a {
-  margin-right: 8px; /* espace réduit entre icônes */
-}
-
-.footer-social-icons > a:last-child {
-  margin-right: 0;
-}
-
-.footer-flags {
-  display: flex;
-  gap: 8px;
-  margin-left: auto;
-}
-
-.flag-icon img {
-  border-radius: 8px !important; /* coins arrondis pour tous les drapeaux */
-  border: 1px solid #ccc;
-  width: 32px;
-  height: 24px;
-  object-fit: cover;
-  background: #fff;
-}
-
 /* === Footer Logo Wrapper === */
 .footer-logo-wrapper {
   display: flex;
@@ -265,19 +233,24 @@ main {
   }
 
   .top-social-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 10px;
+    padding: 6px 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
   }
 
-  .top-social-bar img,
-  .social-img-icon {
-    width: 20px;
-    height: 20px;
+  .social-icons-left img,
+  .language-icons-right img {
+    width: 22px;
+    height: 22px;
   }
 
-  .language-selector-right .flag-icon {
-    width: 20px;
+  .social-icons-left {
+    gap: 6px;
+  }
+
+  .language-icons-right {
+    gap: 6px;
   }
 
   .stories-bar {
@@ -307,14 +280,10 @@ main {
     font-size: 12px;
   }
 
-  .footer-social-bar {
-    padding: 0 8px;
-    height: 56px;
-  }
   .footer-social-icons a img,
   .footer-flags .flag-icon img {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
 }
 
