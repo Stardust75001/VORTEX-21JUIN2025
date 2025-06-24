@@ -327,3 +327,28 @@ main {
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+/* === Affichage conditionnel Desktop / Mobile === */
+.only-mobile {
+  display: none;
+}
+.only-desktop {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .only-mobile {
+    display: block;
+  }
+  .only-desktop {
+    display: none;
+  }
+
+  .language-selector-right img {
+    width: 20px;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
