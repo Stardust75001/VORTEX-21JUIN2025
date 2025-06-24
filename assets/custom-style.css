@@ -344,3 +344,16 @@ main {
     display: none;
   }
 }
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.language-selector-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes flags to the right */
+  gap: 8px;
+}
