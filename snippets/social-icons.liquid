@@ -1,38 +1,31 @@
-{% comment %}
-Section : Réseaux sociaux + Langues (footer uniquement, sans doublon avec header)
-{% endcomment %}
-
 <div class="footer-social-bar">
   <div class="footer-social-icons">
-    <a href="https://www.instagram.com/spencerandthecity/" target="_blank" rel="noopener" aria-label="Instagram">
-      <img src="{{ 'instagram.png' | asset_url }}" alt="Instagram" width="32" height="32" loading="lazy">
+    <a href="https://www.instagram.com/spencerandthecity/" target="_blank" rel="noopener">
+      <img src="{{ 'instagram.png' | asset_url }}" alt="Instagram" class="social-img-icon" />
     </a>
-    <a href="https://www.facebook.com/profile.php?id=61573834333893" target="_blank" rel="noopener" aria-label="Facebook">
-      <img src="{{ 'facebook.png' | asset_url }}" alt="Facebook" width="32" height="32" loading="lazy">
+    <a href="https://www.facebook.com/profile.php?id=61573834333893" target="_blank" rel="noopener">
+      <img src="{{ 'facebook.png' | asset_url }}" alt="Facebook" class="social-img-icon" />
     </a>
-    <a href="https://www.tiktok.com/@thepetsociety_paris" target="_blank" rel="noopener" aria-label="TikTok">
-      <img src="{{ 'tiktok.png' | asset_url }}" alt="TikTok" width="32" height="32" loading="lazy">
+    <a href="https://www.tiktok.com/@thepetsociety_paris" target="_blank" rel="noopener">
+      <img src="{{ 'tiktok.png' | asset_url }}" alt="TikTok" class="social-img-icon" />
     </a>
-    <a href="https://wa.me/3369238799" target="_blank" rel="noopener" aria-label="WhatsApp">
-      <img src="{{ 'WhatsApp.png' | asset_url }}" alt="WhatsApp" width="32" height="32" loading="lazy">
+    <a href="https://wa.me/33769238799" target="_blank" rel="noopener">
+      <img src="{{ 'WhatsApp.png' | asset_url }}" alt="WhatsApp" class="social-img-icon" />
     </a>
-    <a href="mailto:hello@thepetsociety.paris" aria-label="Email">
-      <img src="{{ 'mail.png' | asset_url }}" alt="Email" width="32" height="32" loading="lazy">
+    <a href="mailto:hello@thepetsociety.paris" target="_blank" rel="noopener">
+      <img src="{{ 'mail.png' | asset_url }}" alt="Email" class="social-img-icon" />
     </a>
   </div>
-  {% if localization.available_languages.size > 1 %}
-    <div class="footer-flags">
-      {% for language in localization.available_languages %}
-        <a href="{{ language.root_url }}" class="flag-icon" aria-label="{{ language.endonym_name }}">
-          <img
-            src="{{ 'flag-' | append: language.iso_code | append: '.png' | asset_url }}"
-            alt="{{ language.endonym_name }}"
-            width="32"
-            height="24"
-            loading="lazy"
-          />
-        </a>
-      {% endfor %}
-    </div>
-  {% endif %}
+
+  <div class="footer-flags">
+    <a href="/" class="flag-icon" aria-label="English">
+      <img src="{{ 'flag-en.png' | asset_url }}" alt="English" />
+    </a>
+    <a href="/fr" class="flag-icon" aria-label="Français">
+      <img src="{{ 'flag-fr.png' | asset_url }}" alt="Français" />
+    </a>
+    <a href="/de" class="flag-icon" aria-label="Deutsch">
+      <img src="{{ 'flag-de.png' | asset_url }}" alt="Deutsch" />
+    </a>
+  </div>
 </div>
