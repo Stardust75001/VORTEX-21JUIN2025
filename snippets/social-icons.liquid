@@ -1,46 +1,32 @@
 {% comment %}
-Section : Image avec texte + boutons (responsive, image mobile dédiée, no-gap auto)
+Section : Réseaux sociaux + Langue (responsive & accessible)
 {% endcomment %}
 
-{% liquid
-  assign mt = section.settings.mt | prepend: 'mt-'
-  assign mb = section.settings.mb | prepend: 'mb-'
-  assign pt = section.settings.pt | prepend: 'pt-'
-  assign pb = section.settings.pb | prepend: 'pb-'
-  assign custom_class = section.settings.custom_class
-%}
+<div class="footer-social-icons">
+  <a href="https://www.instagram.com/spencerandthecity/" target="_blank" rel="noopener" aria-label="Instagram">
+    <img src="{{ 'instagram.png' | asset_url }}" alt="Instagram" width="40" height="40" loading="lazy">
+  </a>
+  <a href="https://www.facebook.com/profile.php?id=61573834333893" target="_blank" rel="noopener" aria-label="Facebook">
+    <img src="{{ 'facebook.png' | asset_url }}" alt="Facebook" width="40" height="40" loading="lazy">
+  </a>
+  <a href="https://wa.me/33769238799" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <img src="{{ 'WhatsApp.png' | asset_url }}" alt="WhatsApp" width="40" height="40" loading="lazy">
+  </a>
+  <a href="mailto:hello@thepetsociety.paris" aria-label="Email">
+    <img src="{{ 'mail.png' | asset_url }}" alt="Email" width="40" height="40" loading="lazy">
+  </a>
 
-<section class="image-banner-wrapper custom-image-banner-class {{ custom_class }} {{ mt }} {{ mb }} {{ pt }} {{ pb }}">
-  {% if section.settings.image != blank or section.settings.image_mobile != blank %}
-    <picture>
-      {% if section.settings.image_mobile != blank %}
-        <source media="(max-width: 768px)" srcset="{{ section.settings.image_mobile | image_url: width: 800 }}">
-      {% endif %}
-      <img src="{{ section.settings.image | image_url: width: 1920 }}"
-           alt="{{ section.settings.title | escape }}"
-           loading="lazy"
-           class="image-banner-img">
-    </picture>
+  {% if localization.available_languages.size > 1 %}
+    {% for language in localization.available_languages %}
+      <a href="{{ language.root_url }}" class="flag-icon" style="margin-left:8px;" aria-label="{{ language.endonym_name }}">
+        <img
+          src="{{ 'flag-' | append: language.iso_code | append: '.png' | asset_url }}"
+          alt="{{ language.endonym_name }}"
+          width="40"
+          height="28"
+          loading="lazy"
+        />
+      </a>
+    {% endfor %}
   {% endif %}
-
-  <div class="image-banner-overlay">
-    {% if section.settings.title != blank %}
-      <h2 class="image-banner-title">{{ section.settings.title }}</h2>
-    {% endif %}
-    {% if section.settings.text != blank %}
-      <p class="image-banner-text">{{ section.settings.text }}</p>
-    {% endif %}
-    <div class="image-banner-buttons">
-      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="btn btn-primary">
-          {{ section.settings.button_label }}
-        </a>
-      {% endif %}
-      {% if section.settings.button_label_2 != blank and section.settings.button_link_2 != blank %}
-        <a href="{{ section.settings.button_link_2 }}" class="btn btn-secondary">
-          {{ section.settings.button_label_2 }}
-        </a>
-      {% endif %}
-    </div>
-  </div>
-</section>
+</div>
