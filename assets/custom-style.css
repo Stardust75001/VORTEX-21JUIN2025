@@ -318,3 +318,8 @@ main {
     display: none;
   }
 }
+.language-selector-right img {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
