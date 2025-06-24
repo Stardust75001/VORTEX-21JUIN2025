@@ -254,7 +254,7 @@ main {
 /* === Responsive Mobile Adjustments === */
 @media (max-width: 768px) {
   main {
-    padding-top: 320px !important;
+    padding-top: 270px !important;
   }
 
   .top-social-bar {
