@@ -1,32 +1,32 @@
 {% comment %}
-Section : Réseaux sociaux + Langue (responsive & accessible)
+Section : Bar sociale sticky — icônes gauche, langues droite
 {% endcomment %}
 
-<div class="footer-social-icons">
-  <a href="https://www.instagram.com/spencerandthecity/" target="_blank" rel="noopener" aria-label="Instagram">
-    <img src="{{ 'instagram.png' | asset_url }}" alt="Instagram" width="40" height="40" loading="lazy">
-  </a>
-  <a href="https://www.facebook.com/profile.php?id=61573834333893" target="_blank" rel="noopener" aria-label="Facebook">
-    <img src="{{ 'facebook.png' | asset_url }}" alt="Facebook" width="40" height="40" loading="lazy">
-  </a>
-  <a href="https://wa.me/33769238799" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <img src="{{ 'WhatsApp.png' | asset_url }}" alt="WhatsApp" width="40" height="40" loading="lazy">
-  </a>
-  <a href="mailto:hello@thepetsociety.paris" aria-label="Email">
-    <img src="{{ 'mail.png' | asset_url }}" alt="Email" width="40" height="40" loading="lazy">
-  </a>
+<div class="top-social-bar">
+  <div class="social-icons-left">
+    <a href="https://www.instagram.com/spencerandthecity/" target="_blank" rel="noopener" aria-label="Instagram">
+      <img src="{{ 'instagram.png' | asset_url }}" alt="Instagram" loading="lazy">
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61573834333893" target="_blank" rel="noopener" aria-label="Facebook">
+      <img src="{{ 'facebook.png' | asset_url }}" alt="Facebook" loading="lazy">
+    </a>
+    <a href="https://wa.me/33769238799" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <img src="{{ 'WhatsApp.png' | asset_url }}" alt="WhatsApp" loading="lazy">
+    </a>
+    <a href="mailto:hello@thepetsociety.paris" aria-label="Email">
+      <img src="{{ 'mail.png' | asset_url }}" alt="Email" loading="lazy">
+    </a>
+  </div>
 
-  {% if localization.available_languages.size > 1 %}
-    {% for language in localization.available_languages %}
-      <a href="{{ language.root_url }}" class="flag-icon" style="margin-left:8px;" aria-label="{{ language.endonym_name }}">
-        <img
-          src="{{ 'flag-' | append: language.iso_code | append: '.png' | asset_url }}"
-          alt="{{ language.endonym_name }}"
-          width="40"
-          height="28"
-          loading="lazy"
-        />
-      </a>
-    {% endfor %}
-  {% endif %}
+  <div class="language-selector-right">
+    {% if localization.available_languages.size > 1 %}
+      {% for language in localization.available_languages %}
+        {% assign url = language.root_url %}
+        <a href="{{ url }}" aria-label="{{ language.endonym_name }}">
+          <img src="{{ 'flag-' | append: language.iso_code | append: '.png' | asset_url }}"
+               alt="{{ language.endonym_name }}" loading="lazy">
+        </a>
+      {% endfor %}
+    {% endif %}
+  </div>
 </div>
