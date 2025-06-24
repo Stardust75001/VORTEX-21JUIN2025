@@ -306,6 +306,16 @@ main {
     padding: 8px 16px;
     font-size: 12px;
   }
+
+  .footer-social-bar {
+    padding: 0 8px;
+    height: 56px;
+  }
+  .footer-social-icons a img,
+  .footer-flags .flag-icon img {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 /* === Affichage conditionnel Desktop / Mobile === */
