@@ -1,36 +1,31 @@
-{% comment %}
-Section : Bar sociale sticky — icônes à gauche, drapeaux totalement à droite
-{% endcomment %}
-
 <div class="top-social-bar">
+  <!-- Icônes sociales à gauche -->
   <div class="social-icons-left">
-    <a href="https://www.instagram.com/spencerandthecity/" target="_blank" rel="noopener" aria-label="Instagram">
+    <a href="https://www.instagram.com/spencerandthecity/" target="_blank" rel="noopener">
       <img src="{{ 'instagram.png' | asset_url }}" alt="Instagram" loading="lazy">
     </a>
-    <a href="https://www.facebook.com/profile.php?id=61573834333893" target="_blank" rel="noopener" aria-label="Facebook">
+    <a href="https://www.facebook.com/profile.php?id=61573834333893" target="_blank" rel="noopener">
       <img src="{{ 'facebook.png' | asset_url }}" alt="Facebook" loading="lazy">
     </a>
-    <a href="https://wa.me/33769238799" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <a href="https://wa.me/33769238799" target="_blank" rel="noopener">
       <img src="{{ 'WhatsApp.png' | asset_url }}" alt="WhatsApp" loading="lazy">
     </a>
-    <a href="mailto:hello@thepetsociety.paris" aria-label="Email">
+    <a href="mailto:hello@thepetsociety.paris">
       <img src="{{ 'mail.png' | asset_url }}" alt="Email" loading="lazy">
     </a>
   </div>
 
-  <div class="spacer" style="flex: 1;"></div>
-
+  <!-- Drapeaux à droite -->
   <div class="language-selector-right">
-    {% if localization.available_languages.size > 1 %}
-      {% for language in localization.available_languages %}
-        <a href="{{ language.root_url }}" aria-label="{{ language.endonym_name }}">
-          <img src="{{ 'flag-' | append: language.iso_code | append: '.png' | asset_url }}"
-               alt="{{ language.endonym_name }}"
-               width="40"
-               height="28"
-               loading="lazy">
-        </a>
-      {% endfor %}
-    {% endif %}
+    {% for language in localization.available_languages %}
+      <a href="{{ language.root_url }}" aria-label="{{ language.endonym_name }}">
+        <img src="{{ 'flag-' | append: language.iso_code | append: '.png' | asset_url }}"
+             alt="{{ language.endonym_name }}"
+             class="flag-icon"
+             width="40"
+             height="28"
+             loading="lazy">
+      </a>
+    {% endfor %}
   </div>
 </div>
