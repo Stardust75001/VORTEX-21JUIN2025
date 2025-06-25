@@ -408,20 +408,25 @@
       "return": "Zurück zum Konto"
     }
   },
- "section": "Abschnitt",
-  "textWishlistAdd": "Zur Wunschliste hinzufügen",
-  "textWishlistRemove": "Von der Wunschliste entfernen",
-  "textWishlistBtnLabel": "Wunschliste",
-  "shared": "Geteilt",
-  "bundle": "Bundle",
-  "custom": "Benutzerdefiniert",
-  "footer": {
+"section": "Abschnitt",
+"textWishlistAdd": "Zur Wunschliste hinzufügen",
+"textWishlistRemove": "Von der Wunschliste entfernen",
+"textWishlistBtnLabel": "Wunschliste",
+"shared": "Geteilt",
+"bundle": {
+  "label": "Bundle"
+},
+"custom": {
+  "title": "Benutzerdefiniert",
+  "description": "Passen Sie Ihre Auswahl an"
+},
+"footer": {
   "newsletter": {
     "title": "Abonnieren Sie unseren Newsletter",
     "first_name_placeholder": "Geben Sie Ihren Vornamen ein",
     "email_placeholder": "Geben Sie Ihre E-Mail-Adresse ein",
     "submit_button": "Abonnieren",
     "notice_html": "Mit dem Abonnieren unseres Newsletters stimmen Sie unseren Allgemeinen Geschäftsbedingungen und unserer <a href=\"/pages/confidentialite\">Datenschutzrichtlinie</a> zu."
-    }
   }
+}
 }
