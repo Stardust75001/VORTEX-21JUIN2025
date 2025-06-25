@@ -416,8 +416,12 @@
   "bundle": "Lot",
   "custom": "Personnalisé",
   "footer": {
-    "newsletter": {
-      "notice_html": "En vous inscrivant, vous acceptez de recevoir nos communications marketing. <a href=\"/pages/confidentialite\">Politique de confidentialité</a>."
+     "newsletter": {
+    "title": "Inscrivez-vous à notre newsletter",
+    "first_name_placeholder": "Entrez votre prénom",
+    "email_placeholder": "Entrez votre email",
+    "submit_button": "S'abonner",
+    "notice_html": "En vous inscrivant pour recevoir des courriels, vous acceptez nos conditions générales de vente et notre <a href=\"/pages/confidentialite\">politique de confidentialité</a>."
     }
   }
 }
