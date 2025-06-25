@@ -24,25 +24,33 @@
     "expires_on": "Expire le {{ date }}",
     "balance": "Solde"
   },
-  "custom_sections": {
-    "image_banner_title": "Découvrez un havre d'élégance et d'innovation pour vos animaux.",
-    "image_banner_description": "Sélections raffinées, friandises gourmandes et soins haut de gamme vous attendent.",
-    "image_banner_btn_primary": "ENTREZ !",
-    "image_banner_btn_secondary": "À PROPOS",
-    "image_but_title": "Découvrez un havre d'élégance et d'innovation pour vos animaux.",
-    "image_but_description": "Sélections raffinées, friandises gourmandes et soins haut de gamme vous attendent.",
-    "image_but_btn_primary_label": "ENTREZ !",
-    "image_but_btn_secondary_label": "À PROPOS",
-    "banner_heading": "Titre de la bannière",
-    "banner_text": "Texte de description ici",
-    "multicolumn_title_1": "Titre 1",
-    "multicolumn_text_1": "Texte 1",
-    "multicolumn_title_2": "Titre 2",
-    "multicolumn_text_2": "Texte 2",
-    "multicolumn_title_3": "Titre 3",
-    "multicolumn_text_3": "Texte 3",
-    "section_1": "Section personnalisée 1",
-    "section_2": "Section personnalisée 2"
+ "custom_sections": {
+  "image_banner": {
+    "title": "Découvrez un havre d'élégance et d'innovation pour vos animaux.",
+    "description": "Sélections raffinées, friandises gourmandes et soins haut de gamme vous attendent.",
+    "primary_button": "ENTREZ !",
+    "secondary_button": "À PROPOS"
+  },
+  "image_but": {
+    "title": "Découvrez un havre d'élégance et d'innovation pour vos animaux.",
+    "description": "Sélections raffinées, friandises gourmandes et soins haut de gamme vous attendent.",
+    "primary_button_label": "ENTREZ !",
+    "secondary_button_label": "À PROPOS"
+  },
+  "banner": {
+    "heading": "Titre de la bannière",
+    "text": "Texte de description ici"
+  },
+  "multicolumn": {
+    "title_1": "Titre 1",
+    "text_1": "Texte 1",
+    "title_2": "Titre 2",
+    "text_2": "Texte 2",
+    "title_3": "Titre 3",
+    "text_3": "Texte 3"
+  },
+  "section_1": "Section personnalisée 1",
+  "section_2": "Section personnalisée 2"
   },
   "sections": {
     "featured_collections": {
