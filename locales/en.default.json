@@ -408,11 +408,16 @@
       "return": "Return to account"
     }
   },
-  "section": "Section",
+   "section": "Section",
   "textWishlistAdd": "Add to wishlist",
   "textWishlistRemove": "Remove from wishlist",
   "textWishlistBtnLabel": "Wishlist",
   "shared": "Shared",
   "bundle": "Bundle",
-  "custom": "Custom"
+  "custom": "Custom",
+  "footer": {
+    "newsletter": {
+      "notice_html": "By subscribing, you agree to receive our marketing communications. <a href=\"/pages/confidentialite\">Privacy Policy</a>."
+    }
+  }
 }
