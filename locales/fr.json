@@ -408,20 +408,25 @@
       "return": "Retour au compte"
     }
  },
-  "section": "Section",
-  "textWishlistAdd": "Ajouter à la liste de souhaits",
-  "textWishlistRemove": "Retirer de la liste de souhaits",
-  "textWishlistBtnLabel": "Liste de souhaits",
-  "shared": "Partagé",
-  "bundle": "Lot",
-  "custom": "Personnalisé",
-  "footer": {
-     "newsletter": {
+ "section": "Section",
+"textWishlistAdd": "Ajouter à la liste de souhaits",
+"textWishlistRemove": "Retirer de la liste de souhaits",
+"textWishlistBtnLabel": "Liste de souhaits",
+"shared": "Partagé",
+"bundle": {
+  "label": "Lot"
+},
+"custom": {
+  "title": "Personnalisé",
+  "description": "Personnalisez votre sélection"
+},
+"footer": {
+  "newsletter": {
     "title": "Inscrivez-vous à notre newsletter",
     "first_name_placeholder": "Entrez votre prénom",
     "email_placeholder": "Entrez votre email",
     "submit_button": "S'abonner",
     "notice_html": "En vous inscrivant pour recevoir des courriels, vous acceptez nos conditions générales de vente et notre <a href=\"/pages/confidentialite\">politique de confidentialité</a>."
-    }
   }
+}
 }
