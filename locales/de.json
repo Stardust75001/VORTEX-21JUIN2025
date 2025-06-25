@@ -408,11 +408,16 @@
       "return": "Zurück zum Konto"
     }
   },
-  "section": "Abschnitt",
+ "section": "Abschnitt",
   "textWishlistAdd": "Zur Wunschliste hinzufügen",
   "textWishlistRemove": "Von der Wunschliste entfernen",
   "textWishlistBtnLabel": "Wunschliste",
   "shared": "Geteilt",
   "bundle": "Bundle",
-  "custom": "Benutzerdefiniert"
+  "custom": "Benutzerdefiniert",
+  "footer": {
+    "newsletter": {
+      "notice_html": "Mit Ihrer Anmeldung stimmen Sie dem Erhalt unserer Marketingmitteilungen zu. <a href=\"/pages/confidentialite\">Datenschutzerklärung</a>."
+    }
+  }
 }
