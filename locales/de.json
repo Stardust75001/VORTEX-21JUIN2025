@@ -24,25 +24,33 @@
     "expires_on": "Läuft ab am {{ date }}",
     "balance": "Guthaben"
   },
-  "custom_sections": {
-    "image_banner_title": "Entdecken Sie eine Oase der Eleganz und Innovation für Ihre Haustiere.",
-    "image_banner_description": "Kuratiertes Sortiment, Gourmet-Leckerlis und Premium-Pflege erwarten Sie.",
-    "image_banner_btn_primary": "JETZT ENTDECKEN!",
-    "image_banner_btn_secondary": "ÜBER UNS",
-    "image_but_title": "Entdecken Sie eine Oase der Eleganz und Innovation für Ihre Haustiere.",
-    "image_but_description": "Kuratiertes Sortiment, Gourmet-Leckerlis und Premium-Pflege erwarten Sie.",
-    "image_but_btn_primary_label": "JETZT ENTDECKEN!",
-    "image_but_btn_secondary_label": "ÜBER UNS",
-    "banner_heading": "Banner Titel",
-    "banner_text": "Beschreibungstext hier",
-    "multicolumn_title_1": "Titel 1",
-    "multicolumn_text_1": "Text 1",
-    "multicolumn_title_2": "Titel 2",
-    "multicolumn_text_2": "Text 2",
-    "multicolumn_title_3": "Titel 3",
-    "multicolumn_text_3": "Text 3",
-    "section_1": "Benutzerdefinierter Abschnitt 1",
-    "section_2": "Benutzerdefinierter Abschnitt 2"
+ "custom_sections": {
+  "image_banner": {
+    "title": "Entdecken Sie eine Oase der Eleganz und Innovation für Ihre Haustiere.",
+    "description": "Kuratiertes Sortiment, Gourmet-Leckerlis und Premium-Pflege erwarten Sie.",
+    "primary_button": "JETZT ENTDECKEN!",
+    "secondary_button": "ÜBER UNS"
+  },
+  "image_but": {
+    "title": "Entdecken Sie eine Oase der Eleganz und Innovation für Ihre Haustiere.",
+    "description": "Kuratiertes Sortiment, Gourmet-Leckerlis und Premium-Pflege erwarten Sie.",
+    "primary_button_label": "JETZT ENTDECKEN!",
+    "secondary_button_label": "ÜBER UNS"
+  },
+  "banner": {
+    "heading": "Banner Titel",
+    "text": "Beschreibungstext hier"
+  },
+  "multicolumn": {
+    "title_1": "Titel 1",
+    "text_1": "Text 1",
+    "title_2": "Titel 2",
+    "text_2": "Text 2",
+    "title_3": "Titel 3",
+    "text_3": "Text 3"
+  },
+  "section_1": "Benutzerdefinierter Abschnitt 1",
+  "section_2": "Benutzerdefinierter Abschnitt 2"
   },
   "sections": {
     "featured_collections": {
