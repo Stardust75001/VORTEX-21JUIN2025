@@ -24,7 +24,7 @@
     "expires_on": "Expires on {{ date }}",
     "balance": "Balance"
   },
- "custom_sections": {
+"custom_sections": {
   "image_banner": {
     "title": "Discover a haven of elegance and innovation for your pets.",
     "description": "Curated selections, gourmet treats, and premium care await.",
@@ -51,7 +51,7 @@
   },
   "section_1": "Custom Section 1",
   "section_2": "Custom Section 2"
-  },
+},
   "sections": {
     "featured_collections": {
       "settings": {
