@@ -24,33 +24,33 @@
     "expires_on": "Expire le {{ date }}",
     "balance": "Solde"
   },
- "custom_sections": {
-  "image_banner": {
-    "title": "Découvrez un havre d'élégance et d'innovation pour vos animaux.",
-    "description": "Sélections raffinées, friandises gourmandes et soins haut de gamme vous attendent.",
-    "primary_button": "ENTREZ !",
-    "secondary_button": "À PROPOS"
-  },
-  "image_but": {
-    "title": "Découvrez un havre d'élégance et d'innovation pour vos animaux.",
-    "description": "Sélections raffinées, friandises gourmandes et soins haut de gamme vous attendent.",
-    "primary_button_label": "ENTREZ !",
-    "secondary_button_label": "À PROPOS"
-  },
-  "banner": {
-    "heading": "Titre de la bannière",
-    "text": "Texte de description ici"
-  },
-  "multicolumn": {
-    "title_1": "Titre 1",
-    "text_1": "Texte 1",
-    "title_2": "Titre 2",
-    "text_2": "Texte 2",
-    "title_3": "Titre 3",
-    "text_3": "Texte 3"
-  },
-  "section_1": "Section personnalisée 1",
-  "section_2": "Section personnalisée 2"
+  "custom_sections": {
+    "image_banner": {
+      "title": "Découvrez un havre d'élégance et d'innovation pour vos animaux.",
+      "description": "Sélections raffinées, friandises gourmandes et soins haut de gamme vous attendent.",
+      "primary_button": "ENTREZ !",
+      "secondary_button": "À PROPOS"
+    },
+    "image_but": {
+      "title": "Découvrez un havre d'élégance et d'innovation pour vos animaux.",
+      "description": "Sélections raffinées, friandises gourmandes et soins haut de gamme vous attendent.",
+      "primary_button_label": "ENTREZ !",
+      "secondary_button_label": "À PROPOS"
+    },
+    "banner": {
+      "heading": "Titre de la bannière",
+      "text": "Texte de description ici"
+    },
+    "multicolumn": {
+      "title_1": "Titre 1",
+      "text_1": "Texte 1",
+      "title_2": "Titre 2",
+      "text_2": "Texte 2",
+      "title_3": "Titre 3",
+      "text_3": "Texte 3"
+    },
+    "section_1": "Section personnalisée 1",
+    "section_2": "Section personnalisée 2"
   },
   "sections": {
     "featured_collections": {
@@ -110,20 +110,20 @@
       "btn_label": "Ajouter à la liste de souhaits"
     },
     "bundle": {
-  "custom_bundle": {
-    "add_to_bundle": "Ajouter au lot",
-    "added_to_bundle": "Ajouté au lot",
-    "progress_label": "Avancement de l'offre",
-    "progress_uncompleted_text": "Non terminé",
-    "progress_completed_text": "Terminé",
-    "bundle_price": "Prix du lot",
-    "you_save": "Vous économisez",
-    "button_atc_text": "Ajouter au panier",
-    "button_view_contents_text": "Voir le contenu du lot",
-    "bundle_contents_title": "Contenu du lot",
-    "bundle_contents_empty_html": "Le lot est vide pour l’instant"
-  }
-},
+      "custom_bundle": {
+        "add_to_bundle": "Ajouter au lot",
+        "added_to_bundle": "Ajouté au lot",
+        "progress_label": "Avancement de l'offre",
+        "progress_uncompleted_text": "Non terminé",
+        "progress_completed_text": "Terminé",
+        "bundle_price": "Prix du lot",
+        "you_save": "Vous économisez",
+        "button_atc_text": "Ajouter au panier",
+        "button_view_contents_text": "Voir le contenu du lot",
+        "bundle_contents_title": "Contenu du lot",
+        "bundle_contents_empty_html": "Le lot est vide pour l’instant"
+      }
+    },
     "add": "Ajouter",
     "add_to_cart": "Ajouter au panier",
     "bought_together": {
@@ -415,26 +415,26 @@
     "account": {
       "return": "Retour au compte"
     }
- },
- "section": "Section",
-"textWishlistAdd": "Ajouter à la liste de souhaits",
-"textWishlistRemove": "Retirer de la liste de souhaits",
-"textWishlistBtnLabel": "Liste de souhaits",
-"shared": "Partagé",
-"bundle": {
-  "label": "Lot"
-},
-"custom": {
-  "title": "Personnalisé",
-  "description": "Personnalisez votre sélection"
-},
-"footer": {
-  "newsletter": {
-    "title": "Inscrivez-vous à notre newsletter",
-    "first_name_placeholder": "Entrez votre prénom",
-    "email_placeholder": "Entrez votre email",
-    "submit_button": "S'abonner",
-    "notice_html": "En vous inscrivant pour recevoir des courriels, vous acceptez nos conditions générales de vente et notre <a href=\"/pages/confidentialite\">politique de confidentialité</a>."
+  },
+  "section": "Section",
+  "textWishlistAdd": "Ajouter à la liste de souhaits",
+  "textWishlistRemove": "Retirer de la liste de souhaits",
+  "textWishlistBtnLabel": "Liste de souhaits",
+  "shared": "Partagé",
+  "bundle": {
+    "label": "Lot"
+  },
+  "custom": {
+    "title": "Personnalisé",
+    "description": "Personnalisez votre sélection"
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Inscrivez-vous à notre newsletter",
+      "first_name_placeholder": "Entrez votre prénom",
+      "email_placeholder": "Entrez votre email",
+      "submit_button": "S'abonner",
+      "notice_html": "En vous inscrivant pour recevoir des courriels, vous acceptez nos conditions générales de vente et notre <a href=\"/pages/confidentialite\">politique de confidentialité</a>."
+    }
   }
-}
 }
