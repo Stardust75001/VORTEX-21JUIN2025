@@ -407,12 +407,17 @@
     "account": {
       "return": "Retour au compte"
     }
-  },
+ },
   "section": "Section",
   "textWishlistAdd": "Ajouter à la liste de souhaits",
   "textWishlistRemove": "Retirer de la liste de souhaits",
   "textWishlistBtnLabel": "Liste de souhaits",
   "shared": "Partagé",
   "bundle": "Lot",
-  "custom": "Personnalisé"
+  "custom": "Personnalisé",
+  "footer": {
+    "newsletter": {
+      "notice_html": "En vous inscrivant, vous acceptez de recevoir nos communications marketing. <a href=\"/pages/confidentialite\">Politique de confidentialité</a>."
+    }
+  }
 }
