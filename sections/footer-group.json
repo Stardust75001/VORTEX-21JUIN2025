@@ -9,7 +9,7 @@
  */
 {
   "type": "footer",
-  "name": "t:footer.name",
+  "name": "Groupe de pied de page",
   "sections": {
     "bf5e08e7-a4d4-484a-9229-05d359a62590": {
       "type": "custom-border",
@@ -54,15 +54,16 @@
         "title_overlay": "",
         "title_overlay_size": "3",
         "color_title_overlay": "#000000",
-        "title": "t:footer.newsletter.title",
+        "title": "SUBSCRIBE TO OUR NEWSLETTER",
         "heading_tag": "h2",
         "title_size": "h3",
         "description": "",
         "description_size": "fs-5",
         "input_group_size": "",
         "show_first_name": true,
-        "first_name_placeholder": "t:footer.newsletter.first_name_placeholder",
+        "first_name_placeholder": "Enter your name",
         "btn_color": "btn-primary",
+        "notice": "<p>By signing up to receive emails, you agree <strong>t</strong>o our <a href=\"/pages/conditions-generales-de-vente\" title=\"GENERAL TERMS AND CONDITIONS OF SALE (GTCS)\">Terms of Sale </a>and <a href=\"/pages/politique-de-confidentilaite\" title=\"PRIVACY POLICY\">Privacy Policy</a>.</p>",
         "pt": 0,
         "pb": 0,
         "mt": 0,
@@ -76,7 +77,7 @@
           "type": "menu",
           "settings": {
             "menu": "help-2",
-            "title": "t:footer.menus.help",
+            "title": "HELP",
             "title_size": "h6"
           }
         },
@@ -84,7 +85,7 @@
           "type": "menu",
           "settings": {
             "menu": "legal",
-            "title": "t:footer.menus.legal",
+            "title": "LEGAL",
             "title_size": "h6"
           }
         },
@@ -92,7 +93,7 @@
           "type": "menu",
           "settings": {
             "menu": "store",
-            "title": "t:footer.menus.store",
+            "title": "STORE",
             "title_size": "h6"
           }
         }
