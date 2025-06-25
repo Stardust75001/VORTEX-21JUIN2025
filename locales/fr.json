@@ -102,20 +102,20 @@
       "btn_label": "Ajouter à la liste de souhaits"
     },
     "bundle": {
-      "custom_bundle": {
-        "add_to_bundle": "Ajouter au lot",
-        "added_to_bundle": "Ajouté au lot",
-        "progress_label": "Progression de l'offre",
-        "progress_uncompleted_text": "Non complétée",
-        "progress_completed_text": "Complétée",
-        "bundle_price": "Prix du lot",
-        "you_save": "Vous économisez",
-        "button_atc_text": "Ajouter au panier",
-        "button_view_contents_text": "Voir le contenu du lot",
-        "bundle_contents_title": "Contenu du lot",
-        "bundle_contents_empty_html": "Le lot est vide pour l’instant"
-      }
-    },
+  "custom_bundle": {
+    "add_to_bundle": "Ajouter au lot",
+    "added_to_bundle": "Ajouté au lot",
+    "progress_label": "Avancement de l'offre",
+    "progress_uncompleted_text": "Non terminé",
+    "progress_completed_text": "Terminé",
+    "bundle_price": "Prix du lot",
+    "you_save": "Vous économisez",
+    "button_atc_text": "Ajouter au panier",
+    "button_view_contents_text": "Voir le contenu du lot",
+    "bundle_contents_title": "Contenu du lot",
+    "bundle_contents_empty_html": "Le lot est vide pour l’instant"
+  }
+},
     "add": "Ajouter",
     "add_to_cart": "Ajouter au panier",
     "bought_together": {
