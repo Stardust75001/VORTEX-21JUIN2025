@@ -101,21 +101,21 @@
       "remove_from_wishlist": "Remove from wishlist",
       "btn_label": "Add to wishlist"
     },
-    "bundle": {
-      "custom_bundle": {
-        "add_to_bundle": "Add to bundle",
-        "added_to_bundle": "Added to bundle",
-        "progress_label": "Offer progress",
-        "progress_uncompleted_text": "Not completed",
-        "progress_completed_text": "Completed",
-        "bundle_price": "Bundle price",
-        "you_save": "You save",
-        "button_atc_text": "Add to cart",
-        "button_view_contents_text": "View bundle contents",
-        "bundle_contents_title": "Bundle contents",
-        "bundle_contents_empty_html": "The bundle is empty for now"
-      }
-    },
+  "bundle": {
+  "custom_bundle": {
+    "add_to_bundle": "Add to bundle",
+    "added_to_bundle": "Added to bundle",
+    "progress_label": "Offer progress",
+    "progress_uncompleted_text": "Not completed",
+    "progress_completed_text": "Completed",
+    "bundle_price": "Bundle price",
+    "you_save": "You save",
+    "button_atc_text": "Add to cart",
+    "button_view_contents_text": "View bundle contents",
+    "bundle_contents_title": "Bundle contents",
+    "bundle_contents_empty_html": "The bundle is empty for now"
+  }
+},
     "add": "Add",
     "add_to_cart": "Add to cart",
     "bought_together": {
