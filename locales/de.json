@@ -24,33 +24,33 @@
     "expires_on": "Läuft ab am {{ date }}",
     "balance": "Guthaben"
   },
- "custom_sections": {
-  "image_banner": {
-    "title": "Entdecken Sie eine Oase der Eleganz und Innovation für Ihre Haustiere.",
-    "description": "Kuratiertes Sortiment, Gourmet-Leckerlis und Premium-Pflege erwarten Sie.",
-    "primary_button": "JETZT ENTDECKEN!",
-    "secondary_button": "ÜBER UNS"
-  },
-  "image_but": {
-    "title": "Entdecken Sie eine Oase der Eleganz und Innovation für Ihre Haustiere.",
-    "description": "Kuratiertes Sortiment, Gourmet-Leckerlis und Premium-Pflege erwarten Sie.",
-    "primary_button_label": "JETZT ENTDECKEN!",
-    "secondary_button_label": "ÜBER UNS"
-  },
-  "banner": {
-    "heading": "Banner Titel",
-    "text": "Beschreibungstext hier"
-  },
-  "multicolumn": {
-    "title_1": "Titel 1",
-    "text_1": "Text 1",
-    "title_2": "Titel 2",
-    "text_2": "Text 2",
-    "title_3": "Titel 3",
-    "text_3": "Text 3"
-  },
-  "section_1": "Benutzerdefinierter Abschnitt 1",
-  "section_2": "Benutzerdefinierter Abschnitt 2"
+  "custom_sections": {
+    "image_banner": {
+      "title": "Entdecken Sie eine Oase der Eleganz und Innovation für Ihre Haustiere.",
+      "description": "Kuratiertes Sortiment, Gourmet-Leckerlis und Premium-Pflege erwarten Sie.",
+      "primary_button": "JETZT ENTDECKEN!",
+      "secondary_button": "ÜBER UNS"
+    },
+    "image_but": {
+      "title": "Entdecken Sie eine Oase der Eleganz und Innovation für Ihre Haustiere.",
+      "description": "Kuratiertes Sortiment, Gourmet-Leckerlis und Premium-Pflege erwarten Sie.",
+      "primary_button_label": "JETZT ENTDECKEN!",
+      "secondary_button_label": "ÜBER UNS"
+    },
+    "banner": {
+      "heading": "Banner Titel",
+      "text": "Beschreibungstext hier"
+    },
+    "multicolumn": {
+      "title_1": "Titel 1",
+      "text_1": "Text 1",
+      "title_2": "Titel 2",
+      "text_2": "Text 2",
+      "title_3": "Titel 3",
+      "text_3": "Text 3"
+    },
+    "section_1": "Benutzerdefinierter Abschnitt 1",
+    "section_2": "Benutzerdefinierter Abschnitt 2"
   },
   "sections": {
     "featured_collections": {
@@ -110,20 +110,20 @@
       "btn_label": "Zur Wunschliste hinzufügen"
     },
     "bundle": {
-  "custom_bundle": {
-    "add_to_bundle": "Zum Paket hinzufügen",
-    "added_to_bundle": "Zum Paket hinzugefügt",
-    "progress_label": "Angebotsfortschritt",
-    "progress_uncompleted_text": "Nicht abgeschlossen",
-    "progress_completed_text": "Abgeschlossen",
-    "bundle_price": "Paketpreis",
-    "you_save": "Du sparst",
-    "button_atc_text": "In den Warenkorb",
-    "button_view_contents_text": "Paketinhalt anzeigen",
-    "bundle_contents_title": "Paketinhalt",
-    "bundle_contents_empty_html": "Das Paket ist derzeit leer"
-  }
-},
+      "custom_bundle": {
+        "add_to_bundle": "Zum Paket hinzufügen",
+        "added_to_bundle": "Zum Paket hinzugefügt",
+        "progress_label": "Angebotsfortschritt",
+        "progress_uncompleted_text": "Nicht abgeschlossen",
+        "progress_completed_text": "Abgeschlossen",
+        "bundle_price": "Paketpreis",
+        "you_save": "Du sparst",
+        "button_atc_text": "In den Warenkorb",
+        "button_view_contents_text": "Paketinhalt anzeigen",
+        "bundle_contents_title": "Paketinhalt",
+        "bundle_contents_empty_html": "Das Paket ist derzeit leer"
+      }
+    },
     "add": "Hinzufügen",
     "add_to_cart": "In den Warenkorb",
     "bought_together": {
@@ -416,25 +416,25 @@
       "return": "Zurück zum Konto"
     }
   },
-"section": "Abschnitt",
-"textWishlistAdd": "Zur Wunschliste hinzufügen",
-"textWishlistRemove": "Von der Wunschliste entfernen",
-"textWishlistBtnLabel": "Wunschliste",
-"shared": "Geteilt",
-"bundle": {
-  "label": "Bundle"
-},
-"custom": {
-  "title": "Benutzerdefiniert",
-  "description": "Passen Sie Ihre Auswahl an"
-},
-"footer": {
-  "newsletter": {
-    "title": "Abonnieren Sie unseren Newsletter",
-    "first_name_placeholder": "Geben Sie Ihren Vornamen ein",
-    "email_placeholder": "Geben Sie Ihre E-Mail-Adresse ein",
-    "submit_button": "Abonnieren",
-    "notice_html": "Mit dem Abonnieren unseres Newsletters stimmen Sie unseren Allgemeinen Geschäftsbedingungen und unserer <a href=\"/pages/confidentialite\">Datenschutzrichtlinie</a> zu."
+  "section": "Abschnitt",
+  "textWishlistAdd": "Zur Wunschliste hinzufügen",
+  "textWishlistRemove": "Von der Wunschliste entfernen",
+  "textWishlistBtnLabel": "Wunschliste",
+  "shared": "Geteilt",
+  "bundle": {
+    "label": "Bundle"
+  },
+  "custom": {
+    "title": "Benutzerdefiniert",
+    "description": "Passen Sie Ihre Auswahl an"
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Abonnieren Sie unseren Newsletter",
+      "first_name_placeholder": "Geben Sie Ihren Vornamen ein",
+      "email_placeholder": "Geben Sie Ihre E-Mail-Adresse ein",
+      "submit_button": "Abonnieren",
+      "notice_html": "Mit dem Abonnieren unseres Newsletters stimmen Sie unseren Allgemeinen Geschäftsbedingungen und unserer <a href=\"/pages/confidentialite\">Datenschutzrichtlinie</a> zu."
+    }
   }
-}
 }
