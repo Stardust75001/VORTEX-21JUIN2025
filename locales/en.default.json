@@ -24,34 +24,34 @@
     "expires_on": "Expires on {{ date }}",
     "balance": "Balance"
   },
-"custom_sections": {
-  "image_banner": {
-    "title": "Discover a haven of elegance and innovation for your pets.",
-    "description": "Curated selections, gourmet treats, and premium care await.",
-    "primary_button": "COME ON IN!",
-    "secondary_button": "ABOUT US"
+  "custom_sections": {
+    "image_banner": {
+      "title": "Discover a haven of elegance and innovation for your pets.",
+      "description": "Curated selections, gourmet treats, and premium care await.",
+      "primary_button": "COME ON IN!",
+      "secondary_button": "ABOUT US"
+    },
+    "image_but": {
+      "title": "Discover a haven of elegance and innovation for your pets.",
+      "description": "Curated selections, gourmet treats, and premium care await.",
+      "primary_button_label": "COME ON IN!",
+      "secondary_button_label": "ABOUT US"
+    },
+    "banner": {
+      "heading": "Banner Title",
+      "text": "Description text here"
+    },
+    "multicolumn": {
+      "title_1": "Title 1",
+      "text_1": "Text 1",
+      "title_2": "Title 2",
+      "text_2": "Text 2",
+      "title_3": "Title 3",
+      "text_3": "Text 3"
+    },
+    "section_1": "Custom Section 1",
+    "section_2": "Custom Section 2"
   },
-  "image_but": {
-    "title": "Discover a haven of elegance and innovation for your pets.",
-    "description": "Curated selections, gourmet treats, and premium care await.",
-    "primary_button_label": "COME ON IN!",
-    "secondary_button_label": "ABOUT US"
-  },
-  "banner": {
-    "heading": "Banner Title",
-    "text": "Description text here"
-  },
-  "multicolumn": {
-    "title_1": "Title 1",
-    "text_1": "Text 1",
-    "title_2": "Title 2",
-    "text_2": "Text 2",
-    "title_3": "Title 3",
-    "text_3": "Text 3"
-  },
-  "section_1": "Custom Section 1",
-  "section_2": "Custom Section 2"
-},
   "sections": {
     "featured_collections": {
       "settings": {
@@ -109,21 +109,21 @@
       "remove_from_wishlist": "Remove from wishlist",
       "btn_label": "Add to wishlist"
     },
-  "bundle": {
-  "custom_bundle": {
-    "add_to_bundle": "Add to bundle",
-    "added_to_bundle": "Added to bundle",
-    "progress_label": "Offer progress",
-    "progress_uncompleted_text": "Not completed",
-    "progress_completed_text": "Completed",
-    "bundle_price": "Bundle price",
-    "you_save": "You save",
-    "button_atc_text": "Add to cart",
-    "button_view_contents_text": "View bundle contents",
-    "bundle_contents_title": "Bundle contents",
-    "bundle_contents_empty_html": "The bundle is empty for now"
-  }
-},
+    "bundle": {
+      "custom_bundle": {
+        "add_to_bundle": "Add to bundle",
+        "added_to_bundle": "Added to bundle",
+        "progress_label": "Offer progress",
+        "progress_uncompleted_text": "Not completed",
+        "progress_completed_text": "Completed",
+        "bundle_price": "Bundle price",
+        "you_save": "You save",
+        "button_atc_text": "Add to cart",
+        "button_view_contents_text": "View bundle contents",
+        "bundle_contents_title": "Bundle contents",
+        "bundle_contents_empty_html": "The bundle is empty for now"
+      }
+    },
     "add": "Add",
     "add_to_cart": "Add to cart",
     "bought_together": {
@@ -153,14 +153,14 @@
     "select_variant": "Select variant"
   },
   "general": {
-   "menu": "Menu",
-  "all_rights_reserved": "All rights reserved",
-  "secure_payments": "Secure Payments",
-  "newsletter": {
-    "name_placeholder": "Enter your name",
-    "input_label": "Enter your email",
-    "submit_button": "Subscribe",
-    "confirmation_text": "Thank you for subscribing!"
+    "menu": "Menu",
+    "all_rights_reserved": "All rights reserved",
+    "secure_payments": "Secure Payments",
+    "newsletter": {
+      "name_placeholder": "Enter your name",
+      "input_label": "Enter your email",
+      "submit_button": "Subscribe",
+      "confirmation_text": "Thank you for subscribing!"
     },
     "breadcrumbs": {
       "home": "Home",
@@ -416,25 +416,25 @@
       "return": "Return to account"
     }
   },
-"section": "Section",
-"textWishlistAdd": "Add to wishlist",
-"textWishlistRemove": "Remove from wishlist",
-"textWishlistBtnLabel": "Wishlist",
-"shared": "Shared",
-"bundle": {
-  "label": "Bundle"
-},
-"custom": {
-  "title": "Custom",
-  "description": "Customize your selection"
-},
-"footer": {
-  "newsletter": {
-    "title": "Sign up for our newsletter",
-    "first_name_placeholder": "Enter your first name",
-    "email_placeholder": "Enter your email",
-    "submit_button": "Subscribe",
-    "notice_html": "By signing up to receive emails, you agree to our terms and conditions and our <a href=\"/pages/confidentialite\">privacy policy</a>."
+  "section": "Section",
+  "textWishlistAdd": "Add to wishlist",
+  "textWishlistRemove": "Remove from wishlist",
+  "textWishlistBtnLabel": "Wishlist",
+  "shared": "Shared",
+  "bundle": {
+    "label": "Bundle"
+  },
+  "custom": {
+    "title": "Custom",
+    "description": "Customize your selection"
+  },
+  "footer": {
+    "newsletter": {
+      "title": "Sign up for our newsletter",
+      "first_name_placeholder": "Enter your first name",
+      "email_placeholder": "Enter your email",
+      "submit_button": "Subscribe",
+      "notice_html": "By signing up to receive emails, you agree to our terms and conditions and our <a href=\"/pages/confidentialite\">privacy policy</a>."
+    }
   }
-}
 }
