@@ -408,16 +408,20 @@
       "return": "Return to account"
     }
   },
-   "section": "Section",
-  "textWishlistAdd": "Add to wishlist",
-  "textWishlistRemove": "Remove from wishlist",
-  "textWishlistBtnLabel": "Wishlist",
-  "shared": "Shared",
-  "bundle": "Bundle",
-  "custom": "Custom",
-  "footer": {
-    "newsletter": {
-      "notice_html": "By subscribing, you agree to receive our marketing communications. <a href=\"/pages/confidentialite\">Privacy Policy</a>."
+  "section": "Section",
+"textWishlistAdd": "Add to wishlist",
+"textWishlistRemove": "Remove from wishlist",
+"textWishlistBtnLabel": "Wishlist",
+"shared": "Shared",
+"bundle": "Bundle",
+"custom": "Custom",
+"footer": {
+  "newsletter": {
+    "title": "Sign up for our newsletter",
+    "first_name_placeholder": "Enter your first name",
+    "email_placeholder": "Enter your email",
+    "submit_button": "Subscribe",
+    "notice_html": "By signing up to receive emails, you agree to our terms and conditions and our <a href=\"/pages/confidentialite\">privacy policy</a>."
     }
   }
 }
