@@ -346,7 +346,7 @@
       "subtext": "Gib dein Passwort ein"
     },
     "addresses": {
-       "title": "Adressen",
+      "title": "Adressen",
       "tab_addresses": "Adressen",
       "tab_add_new": "Neue Adresse hinzufügen",
       "default": "Standardadresse",
