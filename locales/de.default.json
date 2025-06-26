@@ -93,6 +93,7 @@
     "load_previous": "Vorherige laden"
   },
   "product": {
+    "price_unit": "Preis pro Einheit",
     "sold_out": "Ausverkauft",
     "price_sale": "Angebotspreis",
     "price_regular": "Regulärer Preis",
@@ -337,7 +338,19 @@
     }
   },
   "customer": {
+    "activate_account": {
+      "password": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "submit": "Absenden",
+      "cancel": "Abbrechen",
+      "subtext": "Gib dein Passwort ein"
+    },
     "addresses": {
+       "title": "Adressen",
+      "tab_addresses": "Adressen",
+      "tab_add_new": "Neue Adresse hinzufügen",
+      "default": "Standardadresse",
+      "add_new": "Neue Adresse hinzufügen",
       "country": "Land",
       "province": "Region",
       "zip": "Postleitzahl",
@@ -375,6 +388,7 @@
       "submit": "Senden"
     },
     "order": {
+      "fulfilled_at_html": "Erfüllt am {{ date }}",
       "title": "Bestelldetails",
       "date_html": "Bestelldatum: {{ date }}",
       "cancelled_html": "Bestellung storniert am {{ date }}",
