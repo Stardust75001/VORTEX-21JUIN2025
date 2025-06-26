@@ -1,11 +1,10 @@
-// ✅ Debug flag toggle
-// utilise isDev déjà défini dans base.js
 function debug(...args) {
-  if (isDev) console.debug('[Stories Tooltip]', ...args);
+  if (typeof isDev !== 'undefined' && isDev) {
+    console.debug('[Stories Tooltip]', ...args);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Detecte si on est sur mobile (pas de hover)
   const isMobile = window.matchMedia("(hover: none)").matches;
   debug("isMobile:", isMobile);
 
@@ -13,47 +12,55 @@ document.addEventListener("DOMContentLoaded", function () {
     const tooltip = link.querySelector(".tooltip-bubble");
     if (!tooltip) return;
 
+    // Desktop : hover = tooltip, clic = navigation directe
     if (!isMobile) {
-      // Desktop : affichage au survol
       link.addEventListener("mouseenter", () => {
         tooltip.classList.add("hover-visible");
         debug("Hover enter on", link);
-        // Ajuste la position après affichage
         setTimeout(() => adjustTooltipPosition(tooltip), 0);
-      });
+      }, { passive: true });
 
       link.addEventListener("mouseleave", () => {
         tooltip.classList.remove("hover-visible");
         debug("Hover leave on", link);
         resetTooltipPosition(tooltip);
-      });
-    } else {
-      // Mobile : affichage au clic + navigation différée 2s
+      }, { passive: true });
+
+      // Pas besoin de bloquer le clic → navigation normale
+    }
+
+    // Mobile : 1er clic affiche tooltip, 2e clic déclenche navigation
+    else {
+      let tappedOnce = false;
+
       link.addEventListener("click", e => {
-        e.preventDefault();
-        debug("Click on", link);
+        if (!tappedOnce) {
+          e.preventDefault();
+          debug("1er tap on", link);
 
-        // Cache toutes les autres infobulles actives
-        document.querySelectorAll(".tooltip-bubble.tap-visible").forEach(el => {
-          el.classList.remove("tap-visible");
-        });
+          // Cache autres infobulles
+          document.querySelectorAll(".tooltip-bubble.tap-visible").forEach(el => {
+            el.classList.remove("tap-visible");
+          });
 
-        tooltip.classList.add("tap-visible");
+          tooltip.classList.add("tap-visible");
+          tappedOnce = true;
 
-        setTimeout(() => {
-          tooltip.classList.remove("tap-visible");
-          const targetHref = link.getAttribute("href");
-          if (targetHref) {
-            debug("Navigating to", targetHref);
-            window.location.href = targetHref;
-          }
-        }, 2000);
+          // Reset si pas de second clic
+          setTimeout(() => {
+            tooltip.classList.remove("tap-visible");
+            tappedOnce = false;
+          }, 2000);
+        } else {
+          debug("2e tap - navigating");
+          // Laisse le lien s'ouvrir normalement
+        }
       });
     }
   });
 });
 
-// Ajuste la position horizontale de l'infobulle pour éviter débordements
+// Ajustement position tooltip (évite débordement)
 function adjustTooltipPosition(tooltip) {
   const rect = tooltip.getBoundingClientRect();
   const vw = window.innerWidth;
@@ -72,7 +79,6 @@ function adjustTooltipPosition(tooltip) {
   }
 }
 
-// Reset position tooltip centrée
 function resetTooltipPosition(tooltip) {
   tooltip.style.left = "50%";
   tooltip.style.transform = "translateX(-50%)";

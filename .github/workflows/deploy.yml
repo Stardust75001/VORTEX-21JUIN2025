@@ -7,23 +7,23 @@ on:
 
 jobs:
   deploy:
-    name: Deploy theme
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Shopify CLI
-        run: |
-          curl -s https://shopify.dev/cli/install/linux | sh
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-      - name: Authenticate with Shopify
-        env:
-          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
-        run: |
-          shopify login --store ${{ secrets.SHOPIFY_STORE }}
+      - name: Install Shopify CLI v3
+        run: npm install -g @shopify/cli@3 @shopify/theme
 
       - name: Deploy to Shopify
         run: |
-          shopify theme push --path . --ignore ".gitignore"
+          shopify theme push --path . \
+            --store ${{ secrets.SHOPIFY_STORE }} \
+            --theme-id ${{ secrets.SHOPIFY_THEME_ID }} \
+            --password ${{ secrets.SHOPIFY_PASSWORD }}
