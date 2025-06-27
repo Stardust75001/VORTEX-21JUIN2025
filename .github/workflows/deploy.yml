@@ -23,7 +23,4 @@ jobs:
 
       - name: Deploy to Shopify
         run: |
-          shopify theme push --path . \
-            --store ${{ secrets.SHOPIFY_STORE }} \
-            --theme-id ${{ secrets.SHOPIFY_THEME_ID }} \
-            --password ${{ secrets.SHOPIFY_PASSWORD }}
+          shopify theme push --theme ${{ secrets.SHOPIFY_THEME_ID }} --path . --store ${{ secrets.SHOPIFY_STORE }} --password ${{ secrets.SHOPIFY_PASSWORD }}
