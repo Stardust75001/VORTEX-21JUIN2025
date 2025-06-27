@@ -36,3 +36,11 @@ Section : Réseaux sociaux + Langues (footer uniquement, sans doublon avec heade
     </div>
   {% endif %}
 </div>
+<div>
+  {% for language in localization.available_languages %}
+    <p>
+      Langue : {{ language.endonym_name }} ({{ language.iso_code }})<br>
+      URL racine : <a href="{{ language.root_url }}">{{ language.root_url }}</a>
+    </p>
+  {% endfor %}
+</div>
