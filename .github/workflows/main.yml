@@ -25,7 +25,8 @@ jobs:
         env:
           SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
           SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
+          SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}
+          # Optionnel si besoin d'utiliser un token CLI
           SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
         run: |
-          shopify login --store $SHOPIFY_STORE --token $SHOPIFY_CLI_AUTH_TOKEN
           shopify theme push --store $SHOPIFY_STORE --theme $SHOPIFY_THEME_ID --path .
