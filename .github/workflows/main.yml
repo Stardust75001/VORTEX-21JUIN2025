@@ -23,9 +23,9 @@ jobs:
 
       - name: Deploy to Shopify
         env:
-          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}           # ex: thepetsociety-paris.myshopify.com
-          SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}     # ID du thème à déployer
-          SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}     # Mot de passe API (si utilisé)
-          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}  # Jeton d'authentification admin API
+          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
+          SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PASSWORD }}
+          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
         run: |
           shopify theme push --store $SHOPIFY_STORE --theme $SHOPIFY_THEME_ID --path .
