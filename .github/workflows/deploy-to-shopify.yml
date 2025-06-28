@@ -1,0 +1,60 @@
+name: Deploy to Shopify
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Shopify CLI v3
+        run: npm install -g @shopify/cli@3 @shopify/theme
+
+      - name: Verify Shopify CLI Installation
+        run: shopify version
+
+      - name: Lint Liquid files (optional, add a linter if needed)
+        run: |
+          if npm list -g shopify-lint >/dev/null 2>&1; then
+            shopify-lint .
+          else
+            echo "No Liquid linter configured. Skipping."
+          fi
+
+      - name: Deploy to Shopify
+        env:
+          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_THEME_ID }}
+          SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
+        run: |
+          set -e
+          echo "Pushing theme to Shopify store: $SHOPIFY_STORE, Theme ID: $SHOPIFY_THEME_ID"
+          shopify theme push --store $SHOPIFY_STORE --theme $SHOPIFY_THEME_ID --path . --unpublished --json > deploy-result.json
+
+      - name: Check Deployment Result
+        run: |
+          if grep -q '"errors":' deploy-result.json; then
+            echo "Deployment failed!"
+            cat deploy-result.json
+            exit 1
+          fi
+          echo "Deployment succeeded."
