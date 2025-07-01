@@ -76,6 +76,9 @@ main {
   background-color: #889080;
   padding: 10px 0;
   z-index: 12000;
+  overflow-y: visible !important; /* Supprime ascenseur vertical */
+  height: auto !important;
+  max-height: none !important;
 }
 
 .stories-bar {
@@ -88,7 +91,7 @@ main {
 }
 
 .animated-stories-link {
-  position: relative;
+  position: relative; /* nécessaire pour le positionnement des bulles */
   display: inline-block;
   text-align: center;
   cursor: pointer;
@@ -114,7 +117,8 @@ main {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  top: 48px;
+  bottom: 100%;  /* remonte l'infobulle au-dessus */
+  top: auto;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(15, 99, 120, 0.95);
@@ -135,11 +139,12 @@ main {
 .tooltip-bubble::after {
   content: "";
   position: absolute;
-  top: 100%;
+  bottom: -12px; /* place la flèche sous la bulle */
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
-  border-top-color: rgba(15, 99, 120, 0.95);
+  border-top-color: transparent;
+  border-bottom-color: rgba(15, 99, 120, 0.95);
 }
 
 .tooltip-bubble.hover-visible,
@@ -150,9 +155,11 @@ main {
 }
 
 .animated-stories-link:last-child .tooltip-bubble {
-  left: auto;
   right: 0;
-  transform: translateX(0) translateY(-100%);
+  left: auto;
+  bottom: 100%;
+  top: auto;
+  transform: translateX(0);
 }
 
 /* === Image Banner === */
