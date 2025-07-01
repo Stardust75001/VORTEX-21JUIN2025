@@ -47,6 +47,11 @@ main {
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+/* Ajout pour éviter que le contenu sous la barre soit masqué */
+body > main {
+  margin-top: 80px; /* même hauteur que stories-bar-wrapper */
+}
+
 .stories-bar {
   display: flex;
   justify-content: center;
@@ -86,16 +91,16 @@ main {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  bottom: 130%; /* Remonte bien au-dessus */
+  bottom: 140%; /* Remonte plus haut au-dessus des icônes */
   left: 50%;
-  transform: translateX(-50%) translateY(-10px);
+  transform: translateX(-50%) translateY(-15px);
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
-  padding: 6px 14px;
+  padding: 8px 16px;
   font-size: 14px;
   border-radius: 6px;
-  white-space: nowrap;
-  max-width: 280px;
+  white-space: normal;
+  max-width: 300px;
   text-overflow: ellipsis;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
