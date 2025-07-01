@@ -76,9 +76,10 @@ main {
   background-color: #889080;
   padding: 10px 0;
   z-index: 12000;
-  overflow-y: visible !important; /* Supprime ascenseur vertical */
-  height: auto !important;
-  max-height: none !important;
+ overflow-y: hidden !important;
+height: 80px; /* ou hauteur fixe adaptée à tes icônes */
+position: sticky;
+top: 120px; /* adapte selon ta hauteur d'en-tête sticky */
 }
 
 .stories-bar {
