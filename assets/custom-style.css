@@ -119,7 +119,7 @@ main {
   position: absolute;
   bottom: 100%; /* Au-dessus de l'icône */
   left: 50%;
-  transform: translateX(-50%) translateY(-8px); /* Remonte un peu au-dessus */
+  transform: translateX(-50%) translateY(-2px); /* Remonte un peu au-dessus */
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
