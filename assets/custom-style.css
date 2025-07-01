@@ -12,19 +12,18 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* main doit compenser la hauteur totale des barres sticky */
 main {
-  padding-top: 260px !important; /* Ajuster en fonction de la hauteur totale sticky */
+  padding-top: 220px !important; /* Ajusté pour barre sociale + navbar + stories bar */
 }
 
 /* === Top Social Bar === */
 .top-social-bar {
-  height: 60px; /* hauteur fixe pour calcul précis */
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #889080;
   padding: 12px 20px;
+  height: auto;
   z-index: 11000;
   overflow-x: auto;
   white-space: nowrap;
@@ -78,12 +77,12 @@ main {
   padding: 10px 0;
   z-index: 12000;
 
-  position: sticky;       /* active sticky */
-  top: 60px;              /* positionne juste sous la barre sociale (60px) */
+  position: fixed; /* FIXE pour ne pas bouger au scroll */
+  top: 140px; /* Ajuste selon hauteur cumulée des barres au-dessus */
   box-sizing: border-box;
 
   overflow-y: hidden !important; /* interdit ascenseur vertical */
-  height: 80px;           /* hauteur adaptée aux icônes */
+  height: 80px; /* hauteur fixe adaptée aux icônes */
 }
 
 .stories-bar {
@@ -98,13 +97,12 @@ main {
 
 .animated-stories-link {
   position: relative;
-  display: flex;
-  align-items: center; /* centre verticalement */
-  justify-content: center; /* centre horizontalement */
+  display: inline-block;
   text-align: center;
   cursor: pointer;
   isolation: isolate;
-  height: 100%;
+  height: 60px;
+  line-height: 60px; /* centre texte verticalement si besoin */
 }
 
 .animated-stories-link img {
@@ -116,7 +114,6 @@ main {
   user-select: none;
 }
 
-/* Zoom au hover */
 .animated-stories-link:hover img,
 .animated-stories-link.tap-zoom img {
   transform: scale(1.15);
@@ -127,9 +124,9 @@ main {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  bottom: 110%; /* Au-dessus de l'icône, un peu plus haut */
+  bottom: 120%; /* Remonte bien au-dessus de l'icône */
   left: 50%;
-  transform: translateX(-50%) translateY(-5px);
+  transform: translateX(-50%) translateY(-10px);
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -148,7 +145,7 @@ main {
 .tooltip-bubble::after {
   content: "";
   position: absolute;
-  top: 100%; /* flèche sous la bulle */
+  top: 100%; /* flèche en bas */
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
@@ -162,7 +159,6 @@ main {
   pointer-events: auto;
 }
 
-/* Cas du dernier lien : infobulle alignée à droite */
 .animated-stories-link:last-child .tooltip-bubble {
   left: auto;
   right: 0;
