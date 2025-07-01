@@ -22,8 +22,8 @@ main {
   justify-content: space-between;
   align-items: center;
   background-color: #889080;
-  padding: 12px 20px; /* ✅ plus d’espace */
-  height: auto;        /* ✅ suppression height fixe */
+  padding: 12px 20px;
+  height: auto;
   z-index: 11000;
   overflow-x: auto;
   white-space: nowrap;
@@ -76,6 +76,12 @@ main {
   background-color: #889080;
   padding: 10px 0;
   z-index: 12000;
+  /* Si tu veux barre sticky, décommente ces 3 lignes */
+  /* position: sticky; */
+  /* top: 120px;  Ajuste selon hauteur header */
+  /* box-sizing: border-box; */
+  overflow-y: hidden !important; /* interdit ascenseur vertical */
+  height: 80px; /* hauteur fixe adaptée aux icônes */
 }
 
 .stories-bar {
@@ -85,6 +91,7 @@ main {
   padding: 6px 12px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  height: 100%; /* occupe toute la hauteur fixe */
 }
 
 .animated-stories-link {
@@ -93,6 +100,8 @@ main {
   text-align: center;
   cursor: pointer;
   isolation: isolate;
+  height: 60px; /* hauteur icône */
+  line-height: 60px; /* centre texte verticalement (si besoin) */
 }
 
 .animated-stories-link img {
@@ -114,9 +123,9 @@ main {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  top: 48px;
+  bottom: 110%; /* Au-dessus de l'icône, un peu plus haut */
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-5px);
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -135,7 +144,7 @@ main {
 .tooltip-bubble::after {
   content: "";
   position: absolute;
-  top: 100%;
+  top: 100%; /* flèche en bas */
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
@@ -302,32 +311,6 @@ main {
   }
 }
 
-/* === Affichage conditionnel Desktop / Mobile === */
-.only-mobile {
-  display: none;
-}
-.only-desktop {
-  display: block;
-}
-
-@media screen and (max-width: 768px) {
-  .only-mobile {
-    display: block;
-  }
-  .only-desktop {
-    display: none;
-  }
-}
-.language-selector-right img {
- width: 40px;
-  height: auto;
-  aspect-ratio: 3 / 2;         /* ✅ Format drapeau standard */
-  border-radius: 6px;          /* ✅ Coins arrondis */
-  max-height: 60px;
-  object-fit: cover;
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
 /* === Affichage conditionnel Desktop / Mobile === */
 .only-mobile {
   display: none;
