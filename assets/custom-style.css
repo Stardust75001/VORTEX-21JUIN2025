@@ -12,9 +12,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Ajuste le padding-top selon la hauteur totale de la barre sociale + navbar + stories bar */
+/* Padding top total pour main : social bar + navbar + stories bar */
 main {
-  padding-top: 220px !important; /* Ajuste selon la hauteur exacte cumulée */
+  padding-top: 200px !important;
 }
 
 /* === Top Social Bar === */
@@ -31,60 +31,20 @@ main {
   gap: 12px;
 }
 
-.social-icons-left,
-.language-selector-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.social-img-icon,
-.top-social-bar img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  border-radius: 50%;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  cursor: pointer;
-}
-
-.social-img-icon:hover,
-.top-social-bar img:hover {
-  transform: scale(1.1);
-  opacity: 0.8;
-}
-
-.language-selector-right a {
-  padding: 0 5px;
-}
-
-.language-selector-right .flag-icon {
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.announcement-bar__left img.flag {
-  border-radius: 50%;
-}
-
-.announcement-bar__right img.flag {
-  display: none;
-}
-
 /* === Stories Bar === */
 .stories-bar-wrapper {
-  position: fixed;
-  top: 140px; /* hauteur cumulative top-social-bar + navbar */
+  position: fixed !important;
+  top: 120px !important; /* Ajuste en fonction hauteur cumulée social bar + navbar */
   left: 0;
   width: 100%;
-  height: 80px; /* hauteur fixe adaptée aux icônes */
+  height: 80px;
   background-color: #889080;
-  z-index: 15100; /* au-dessus navbar */
+  z-index: 16000; /* Au-dessus navbar */
   box-sizing: border-box;
   padding: 10px 0;
   overflow-x: auto !important;
   overflow-y: hidden !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* optionnel */
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .stories-bar {
@@ -92,9 +52,9 @@ main {
   justify-content: center;
   gap: 8px;
   padding: 6px 12px;
-  height: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  height: 100%;
 }
 
 .animated-stories-link {
@@ -104,7 +64,7 @@ main {
   cursor: pointer;
   isolation: isolate;
   height: 60px;
-  line-height: 60px; /* centrage vertical si besoin */
+  line-height: 60px;
 }
 
 .animated-stories-link img {
@@ -126,7 +86,7 @@ main {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  bottom: 120%; /* au-dessus icône */
+  bottom: 130%; /* Remonte bien au-dessus */
   left: 50%;
   transform: translateX(-50%) translateY(-10px);
   background-color: rgba(15, 99, 120, 0.95);
@@ -142,12 +102,13 @@ main {
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 99999;
   visibility: hidden;
+  text-align: center;
 }
 
 .tooltip-bubble::after {
   content: "";
   position: absolute;
-  top: 100%; /* flèche en bas */
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
@@ -162,9 +123,9 @@ main {
 }
 
 .animated-stories-link:last-child .tooltip-bubble {
-  left: auto;
-  right: 0;
-  transform: translateX(0) translateY(-100%);
+  left: auto !important;
+  right: 0 !important;
+  transform: translateX(0) translateY(-100%) !important;
 }
 
 /* === Image Banner === */
