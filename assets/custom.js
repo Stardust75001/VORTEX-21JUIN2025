@@ -1,165 +1,364 @@
-document.addEventListener("DOMContentLoaded", function () {
-  let lastClicked = null;
-
-  document.querySelectorAll('.animated-stories-link').forEach(function (el) {
-    el.addEventListener('click', function (e) {
-      const tooltip = el.querySelector('.tooltip-bubble');
-      if (!tooltip) return;
-
-      const isMobile = window.matchMedia("(hover: none), (pointer: coarse)").matches;
-
-      if (isMobile) {
-        if (lastClicked === el && tooltip.classList.contains('visible')) return;
-
-        e.preventDefault();
-        document.querySelectorAll('.tooltip-bubble.visible').forEach(tip => tip.classList.remove('visible'));
-        tooltip.classList.add('visible');
-        lastClicked = el;
-
-        setTimeout(() => {
-          tooltip.classList.remove('visible');
-          lastClicked = null;
-        }, 3000);
-      }
-    });
-  });
-
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('.animated-stories-link')) {
-      document.querySelectorAll('.tooltip-bubble.visible').forEach(tip => tip.classList.remove('visible'));
-      lastClicked = null;
-    }
-  });
-
-  // ✅ Lazy loading auto sur toutes les images des stories (icônes et tooltips)
-  document.querySelectorAll('img:not([loading])').forEach(img => {
-    img.setAttribute('loading', 'lazy');
-  });
-
-  // ✅ Ajuster le padding-top du <main>
-  function updateMainPadding() {
-    const headerGroup = document.querySelector('.header-sticky-group');
-    const main = document.querySelector('main');
-    if (headerGroup && main) {
-      main.style.paddingTop = headerGroup.offsetHeight + 'px';
-    }
-  }
-  window.addEventListener('load', updateMainPadding);
-  window.addEventListener('resize', updateMainPadding);
-
-  // ✅ Surveiller le bouton de souscription Shopify
-  const SUBSCRIPTION_BTN_SELECTOR = '#shopify-subscription-policy-button';
-  if (document.querySelector(SUBSCRIPTION_BTN_SELECTOR)) {
-    waitForElement(SUBSCRIPTION_BTN_SELECTOR)
-      .then(button => {
-        new MutationObserver(mutations => {
-          for (const mutation of mutations) {
-            if (mutation.attributeName === 'class' && button.classList.contains('is-checked')) {
-              console.log("✅ Bouton de souscription coché");
-            }
-          }
-        }).observe(button, { attributes: true });
-      })
-      .catch(error => {
-        console.warn("❌ Bouton de souscription introuvable :", error);
-      });
-  }
-
-  // ✅ Vérification de la licence Shopiweb
-  try {
-    fetch('https://services.shopiweb.fr/api/licenses/get_by_domain/f6d72e-0f.myshopify.com/premium')
-      .then(response => {
-        if (!response.ok) throw new Error('Erreur réseau');
-        return response.json();
-      })
-      .then(data => {
-        console.log('✅ Licence Shopiweb valide :', data);
-      })
-      .catch(error => {
-        console.warn('⚠️ Validation de licence échouée : fonctionnement limité.', error);
-      });
-  } catch (error) {
-    console.warn('❌ Erreur critique lors du fetch de licence Shopiweb :', error);
-  }
-});
-
-// ✅ Utilitaire : attendre l’apparition d’un élément
-function waitForElement(selector, timeout = 10000) {
-  return new Promise((resolve, reject) => {
-    const el = document.querySelector(selector);
-    if (el) return resolve(el);
-    const observer = new MutationObserver(() => {
-      const el = document.querySelector(selector);
-      if (el) {
-        observer.disconnect();
-        resolve(el);
-      }
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-    setTimeout(() => {
-      observer.disconnect();
-      reject(new Error(`Timeout: ${selector}`));
-    }, timeout);
-  });
+/* === Sticky Header Group === */
+.header-sticky-group {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 15000;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-// ✅ Gestion ATC variante
-function handleAtcFormVariantClick(element, event) {
-  if (event) event.preventDefault();
-  const form = element.closest("form");
-  const variantId = element.getAttribute("data-variant-id");
+main {
+  padding-top: 360px !important;
+}
 
-  if (form && variantId) {
-    const variantInput = form.querySelector('input[name="id"]');
-    if (variantInput) variantInput.value = variantId;
+/* === Top Social Bar === */
+.top-social-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #889080;
+  padding: 12px 20px;
+  height: auto;
+  z-index: 11000;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 12px;
+}
 
-    if (typeof handleAddToCartFormSubmit === 'function') {
-      handleAddToCartFormSubmit(form, event);
-    } else {
-      form.submit();
-    }
+.social-icons-left,
+.language-selector-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-img-icon,
+.top-social-bar img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.social-img-icon:hover,
+.top-social-bar img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.language-selector-right a {
+  padding: 0 5px;
+}
+
+.language-selector-right .flag-icon {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.announcement-bar__left img.flag {
+  border-radius: 50%;
+}
+
+.announcement-bar__right img.flag {
+  display: none;
+}
+
+/* === Stories Bar === */
+.stories-bar-wrapper {
+  width: 100%;
+  background-color: #889080;
+  padding: 10px 0;
+  z-index: 12000;
+  overflow-y: hidden !important; /* interdit ascenseur vertical */
+  height: 80px; /* hauteur fixe adaptée aux icônes */
+  position: sticky;
+  top: 120px; /* adapter selon la hauteur de l'en-tête sticky */
+  box-sizing: border-box;
+}
+
+.stories-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 100%; /* occupe toute la hauteur fixe */
+}
+
+.animated-stories-link {
+  position: relative;
+  display: flex;
+  align-items: center; /* centre verticalement */
+  justify-content: center; /* centre horizontalement */
+  text-align: center;
+  cursor: pointer;
+  isolation: isolate;
+  height: 100%;
+}
+
+.animated-stories-link img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  user-select: none;
+  pointer-events: auto;
+}
+
+/* === Tooltip (Infobulle) === */
+.tooltip-bubble {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  bottom: 100%; /* juste au-dessus de l'icône */
+  left: 50%;
+  transform: translateX(-50%) translateY(-2px); /* remonte légèrement */
+  background-color: rgba(15, 99, 120, 0.95);
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+  max-width: 90vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 99999;
+  visibility: hidden;
+}
+
+.tooltip-bubble::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* flèche en bas */
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: transparent;
+  border-bottom-color: rgba(15, 99, 120, 0.95);
+}
+
+.tooltip-bubble.hover-visible,
+.tooltip-bubble.tap-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.animated-stories-link:last-child .tooltip-bubble {
+  right: 0;
+  left: auto;
+  bottom: 100%;
+  top: auto;
+  transform: translateX(0);
+}
+
+/* === Image Banner === */
+.image-banner-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.image-banner-img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+.image-banner-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+  width: 90%;
+}
+
+.image-banner-title {
+  font-size: 28px;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.image-banner-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-group .btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+/* === Footer Social Icons === */
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 24px;
+  margin: 24px 0;
+  max-width: 100vw;
+}
+
+.footer-social-icons > * {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-social-icons img,
+.footer-social-icons svg {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* === Footer Logo Wrapper === */
+.footer-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.footer-logo-img {
+  max-width: 160px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+/* === Responsive Mobile Adjustments === */
+@media (max-width: 768px) {
+  main {
+    padding-top: 275px !important;
+  }
+
+  .top-social-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+  }
+
+  .top-social-bar img,
+  .social-img-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .language-selector-right .flag-icon {
+    width: 20px;
+  }
+
+  .stories-bar {
+    padding: 4px 8px;
+  }
+
+  .animated-stories-link img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tooltip-bubble {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .image-banner-title {
+    font-size: 24px;
+  }
+
+  .image-banner-description {
+    font-size: 14px;
+  }
+
+  .btn-group .btn {
+    padding: 8px 16px;
+    font-size: 12px;
   }
 }
 
-// ✅ Gestion bouton Checkout
-function handleCheckoutButtonClick(element, event) {
-  if (event) event.preventDefault();
-  const form = element.closest("form");
-  if (form) form.submit();
+/* === Affichage conditionnel Desktop / Mobile === */
+.only-mobile {
+  display: none;
+}
+.only-desktop {
+  display: block;
 }
 
-// ✅ Formulaire ATC avec feedback visuel
-function handleAddToCartFormSubmit(form, event) {
-  if (event) event.preventDefault();
+@media screen and (max-width: 768px) {
+  .only-mobile {
+    display: block;
+  }
+  .only-desktop {
+    display: none;
+  }
+}
+.language-selector-right img {
+  width: 40px;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  border-radius: 6px;
+  max-height: 60px;
+  object-fit: cover;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
 
-  const btn = form.querySelector(".btn-atc");
-  if (btn) {
-    btn.innerHTML = `
-      <div class="spinner-border spinner-border-sm" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>`;
+/* === Affichage conditionnel Desktop / Mobile === */
+.only-mobile {
+  display: none;
+}
+.only-desktop {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .only-mobile {
+    display: block;
+  }
+  .only-desktop {
+    display: none;
   }
 
-  form.classList.add("loading");
-
-  fetch("/cart/add.js", {
-    method: "POST",
-    body: new FormData(form),
-    headers: {
-      Accept: "application/json"
-    }
-  })
-    .then(res => res.json())
-    .then(data => {
-      console.log("✅ Produit ajouté au panier :", data);
-      if (typeof updateCartDrawer === 'function') {
-        updateCartDrawer();
-      } else {
-        window.location.reload();
-      }
-    })
-    .catch(error => {
-      console.error("❌ Erreur lors de l'ajout au panier :", error);
-      form.classList.remove("loading");
-    });
+  .language-selector-right img {
+    width: 20px;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
 }
