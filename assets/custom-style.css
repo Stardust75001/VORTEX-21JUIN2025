@@ -76,12 +76,13 @@ main {
   background-color: #889080;
   padding: 10px 0;
   z-index: 12000;
-  /* Si tu veux barre sticky, décommente ces 3 lignes */
-  /* position: sticky; */
-  /* top: 120px;  Ajuste selon hauteur header */
-  /* box-sizing: border-box; */
+
+  position: sticky;        /* active le sticky */
+  top: 120px;              /* ajuste selon hauteur cumulée de tes barres au-dessus */
+  box-sizing: border-box;  /* gère padding et largeur correctement */
+
   overflow-y: hidden !important; /* interdit ascenseur vertical */
-  height: 80px; /* hauteur fixe adaptée aux icônes */
+  height: 80px;            /* hauteur fixe adaptée aux icônes */
 }
 
 .stories-bar {
