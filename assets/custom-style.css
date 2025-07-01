@@ -118,7 +118,7 @@ main {
   pointer-events: none;
   position: absolute;
   bottom: 100%;  /* remonte l'infobulle au-dessus */
-  top: 0;
+  top: -50;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(15, 99, 120, 0.95);
