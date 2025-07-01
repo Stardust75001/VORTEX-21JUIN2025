@@ -12,18 +12,19 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* main doit compenser la hauteur totale des barres sticky */
 main {
-  padding-top: 360px !important;
+  padding-top: 260px !important; /* Ajuster en fonction de la hauteur totale sticky */
 }
 
 /* === Top Social Bar === */
 .top-social-bar {
+  height: 60px; /* hauteur fixe pour calcul précis */
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #889080;
   padding: 12px 20px;
-  height: auto;
   z-index: 11000;
   overflow-x: auto;
   white-space: nowrap;
@@ -77,12 +78,12 @@ main {
   padding: 10px 0;
   z-index: 12000;
 
-  position: sticky;        /* active le sticky */
-  top: 120px;              /* ajuste selon hauteur cumulée de tes barres au-dessus */
-  box-sizing: border-box;  /* gère padding et largeur correctement */
+  position: sticky;       /* active sticky */
+  top: 60px;              /* positionne juste sous la barre sociale (60px) */
+  box-sizing: border-box;
 
   overflow-y: hidden !important; /* interdit ascenseur vertical */
-  height: 80px;            /* hauteur fixe adaptée aux icônes */
+  height: 80px;           /* hauteur adaptée aux icônes */
 }
 
 .stories-bar {
@@ -92,17 +93,18 @@ main {
   padding: 6px 12px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  height: 100%; /* occupe toute la hauteur fixe */
+  height: 100%; /* occupe toute la hauteur */
 }
 
 .animated-stories-link {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center; /* centre verticalement */
+  justify-content: center; /* centre horizontalement */
   text-align: center;
   cursor: pointer;
   isolation: isolate;
-  height: 60px; /* hauteur icône */
-  line-height: 60px; /* centre texte verticalement (si besoin) */
+  height: 100%;
 }
 
 .animated-stories-link img {
@@ -114,6 +116,7 @@ main {
   user-select: none;
 }
 
+/* Zoom au hover */
 .animated-stories-link:hover img,
 .animated-stories-link.tap-zoom img {
   transform: scale(1.15);
@@ -145,7 +148,7 @@ main {
 .tooltip-bubble::after {
   content: "";
   position: absolute;
-  top: 100%; /* flèche en bas */
+  top: 100%; /* flèche sous la bulle */
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
@@ -159,6 +162,7 @@ main {
   pointer-events: auto;
 }
 
+/* Cas du dernier lien : infobulle alignée à droite */
 .animated-stories-link:last-child .tooltip-bubble {
   left: auto;
   right: 0;
