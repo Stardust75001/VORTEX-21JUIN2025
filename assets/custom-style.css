@@ -14,7 +14,7 @@
 
 /* Ajuste le padding-top selon la hauteur totale de la barre sociale + navbar + stories bar */
 main {
-  padding-top: 220px !important; /* Ajuste selon la hauteur exacte */
+  padding-top: 220px !important; /* Ajuste selon la hauteur exacte cumulée */
 }
 
 /* === Top Social Bar === */
@@ -73,17 +73,18 @@ main {
 
 /* === Stories Bar === */
 .stories-bar-wrapper {
+  position: fixed;
+  top: 140px; /* hauteur cumulative top-social-bar + navbar */
+  left: 0;
   width: 100%;
+  height: 80px; /* hauteur fixe adaptée aux icônes */
   background-color: #889080;
-  padding: 10px 0;
-  z-index: 12000;
-
-  position: sticky; /* Sticky sous la navbar */
-  top: 140px; /* Hauteur cumulée barre sociale + navbar */
+  z-index: 15100; /* au-dessus navbar */
   box-sizing: border-box;
-
-  overflow-y: hidden !important; /* Pas d'ascenseur vertical */
-  height: 80px; /* Hauteur fixe adaptée aux icônes */
+  padding: 10px 0;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* optionnel */
 }
 
 .stories-bar {
@@ -91,9 +92,9 @@ main {
   justify-content: center;
   gap: 8px;
   padding: 6px 12px;
+  height: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  height: 100%; /* Remplit la hauteur */
 }
 
 .animated-stories-link {
@@ -103,7 +104,7 @@ main {
   cursor: pointer;
   isolation: isolate;
   height: 60px;
-  line-height: 60px; /* Centrage vertical du texte si nécessaire */
+  line-height: 60px; /* centrage vertical si besoin */
 }
 
 .animated-stories-link img {
@@ -125,7 +126,7 @@ main {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  bottom: 120%; /* Au-dessus des icônes */
+  bottom: 120%; /* au-dessus icône */
   left: 50%;
   transform: translateX(-50%) translateY(-10px);
   background-color: rgba(15, 99, 120, 0.95);
@@ -134,7 +135,7 @@ main {
   font-size: 14px;
   border-radius: 6px;
   white-space: nowrap;
-  max-width: 90vw;
+  max-width: 280px;
   text-overflow: ellipsis;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -146,7 +147,7 @@ main {
 .tooltip-bubble::after {
   content: "";
   position: absolute;
-  top: 100%; /* Flèche en bas */
+  top: 100%; /* flèche en bas */
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
@@ -265,7 +266,7 @@ main {
 /* === Responsive Mobile Adjustments === */
 @media (max-width: 768px) {
   main {
-    padding-top: 240px !important;
+    padding-top: 220px !important;
   }
 
   .top-social-bar {
