@@ -24,11 +24,11 @@ Section : Stories Bar Sticky Configurable (préremplie)
           >
         {% endif %}
         <div
-          class="tooltip-bubble"
-          role="tooltip"
-          style="background-color: {{ section.settings.tooltip_bg }}; opacity: {{ section.settings.tooltip_opacity }};">
-          {{ block.settings.title }}
-        </div>
+  class="tooltip-bubble"
+  role="tooltip"
+  style="background-color: {{ section.settings.tooltip_bg }}; opacity: {{ section.settings.tooltip_opacity }};">
+  {{ 'custom.stories.' | append: block.settings.title | handle | t }}
+</div>
       </a>
     {% endfor %}
   </div>
