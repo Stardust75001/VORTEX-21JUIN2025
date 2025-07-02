@@ -1,17 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Detecte si on est sur mobile (pas de hover)
   const isMobile = window.matchMedia("(hover: none)").matches;
 
-  // Parcours tous les liens stories
   document.querySelectorAll(".animated-stories-link").forEach(link => {
     const tooltip = link.querySelector(".tooltip-bubble");
     if (!tooltip) return;
 
     if (!isMobile) {
-      // Desktop : affichage au survol
+      // Desktop : infobulle au survol
       link.addEventListener("mouseenter", () => {
         tooltip.classList.add("hover-visible");
-        // Ajuste la position après affichage
         setTimeout(() => adjustTooltipPosition(tooltip), 0);
       });
 
@@ -20,11 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
         resetTooltipPosition(tooltip);
       });
     } else {
-      // Mobile : affichage au clic + navigation différée 2s
+      // Mobile : clic = infobulle + redirection différée
       link.addEventListener("click", e => {
         e.preventDefault();
-
-        // Cache toutes les autres infobulles actives
         document.querySelectorAll(".tooltip-bubble.tap-visible").forEach(el => {
           el.classList.remove("tap-visible");
         });
@@ -33,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         setTimeout(() => {
           tooltip.classList.remove("tap-visible");
-          // Navigue vers le lien après délai
           window.location.href = link.getAttribute("href");
         }, 2000);
       });
@@ -41,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Ajuste la position horizontale de l'infobulle pour éviter débordements
+// Corrige la position horizontale si déborde à gauche/droite
 function adjustTooltipPosition(tooltip) {
   const rect = tooltip.getBoundingClientRect();
   const vw = window.innerWidth;
@@ -55,13 +49,13 @@ function adjustTooltipPosition(tooltip) {
     tooltip.style.transform = "none";
   } else if (rect.right > vw) {
     const overflow = rect.right - vw + 10;
-    tooltip.style.left = `calc(80% - ${overflow}px)`;
-    tooltip.style.transform = "translateX(-50%)";
+    tooltip.style.left = `calc(100% - ${overflow}px)`;
+    tooltip.style.transform = "translateX(-100%)";
   }
 }
 
-// Reset position tooltip centrée
+// Remet l’infobulle centrée
 function resetTooltipPosition(tooltip) {
-  tooltip.style.left = "!0%";
-  tooltip.style.transform = "translateX(-80%)";
+  tooltip.style.left = "50%";
+  tooltip.style.transform = "translateX(-50%)";
 }
