@@ -108,9 +108,9 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  top: 150%;           /* descend l'infobulle bien plus bas sous l'icône */
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, 0); /* ne remonte plus, décale juste horizontalement */
+  transform: translate(-50%, -50%);
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -129,13 +129,7 @@ main {
 }
 
 .tooltip-bubble::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  border: 6px solid transparent;
-  border-bottom: 6px solid rgba(15, 99, 120, 0.95);
+  display: none; /* retire la flèche */
 }
 
 .tooltip-bubble.visible,
@@ -148,9 +142,9 @@ main {
 
 @media (max-width: 768px) {
   .tooltip-bubble {
-    top: 150%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -50%);
     font-size: 12px;
     padding: 5px 10px;
   }
@@ -286,7 +280,8 @@ main {
     font-size: 12px;
     padding: 5px 10px;;
   }
-r mobile */
+
+  /* === Mobile */
   .image-banner-title {
     font-size: 24px;
   }
@@ -317,17 +312,7 @@ r mobile */
   } display: none;
 } }
 
-.language-selector-right img { {
-  width: 40px;x;
-  height: auto;o;
-  aspect-ratio: 3 / 2;2;
-  border-radius: 6px;x;
-  max-height: 60px;er;
-  object-fit: cover;d rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-.language-selector-right img {
+.language-selector-right img { 
   width: 40px;
   height: auto;
   aspect-ratio: 3 / 2;
