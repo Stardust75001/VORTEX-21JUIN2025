@@ -2,7 +2,7 @@
 Section : Stories Bar Sticky Configurable (dynamique via blocks)
 {% endcomment %}
 
-<div class="stories-bar-wrapper{% if request.page_type == 'index' %} animate-slide-in{% endif %}">
+<div class="stories-bar-wrapper">
   <style>
     .tooltip-bubble {
       opacity: 0;
@@ -21,7 +21,6 @@ Section : Stories Bar Sticky Configurable (dynamique via blocks)
       max-width: 90vw;
       overflow: hidden;
       text-overflow: ellipsis;
-      visibility: hidden;
     }
     .tooltip-bubble::after {
       content: "";
@@ -36,13 +35,10 @@ Section : Stories Bar Sticky Configurable (dynamique via blocks)
     .tooltip-bubble.tap-visible {
       opacity: {{ section.settings.tooltip_opacity }};
       pointer-events: auto;
-      visibility: visible;
     }
     .animated-stories-link img {
       width: {{ section.settings.icon_size }}px;
       height: {{ section.settings.icon_size }}px;
-      border-radius: 50%;
-      object-fit: cover;
     }
     @media (max-width: 768px) {
       .animated-stories-link img {
@@ -54,6 +50,7 @@ Section : Stories Bar Sticky Configurable (dynamique via blocks)
 
   <div class="stories-bar">
     {% assign lang = request.locale.iso_code %}
+
     {% case lang %}
       {% when 'fr' %}{% assign base_url = '/fr/collections/' %}
       {% when 'de' %}{% assign base_url = '/de/collections/' %}
@@ -62,11 +59,13 @@ Section : Stories Bar Sticky Configurable (dynamique via blocks)
 
     {% for block in section.blocks %}
       {% assign title = block.settings.title %}
-      {% assign image = block.settings.image | image_url: width: 240 %}
-      {% assign link = block.settings.link | remove_first: '/' %}
-      <a href="{{ base_url | append: link }}" class="animated-stories-link" style="--i:{{ forloop.index }}">
-        <img src="{{ image }}" alt="{{ title | escape }}" loading="lazy">
-        <div class="tooltip-bubble" role="tooltip">{{ title }}</div>
+      {% assign image = block.settings.image | img_url: 'master' %}
+      {% assign link = block.settings.link %}
+      <a href="{{ link | prepend: base_url }}" class="animated-stories-link">
+        <img src="{{ image }}" alt="{{ title }}" />
+        <div class="tooltip-bubble" role="tooltip">
+          {{ 'custom.stories.' | append: title | handle | t }}
+        </div>
       </a>
     {% endfor %}
   </div>
