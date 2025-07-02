@@ -135,9 +135,9 @@ main {
 .tooltip-bubble::after {
   content: "";
   position: absolute;
-  top: 100%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -120%);
   border: 6px solid transparent;
   border-top-color: rgba(15, 99, 120, 0.95);
 }
