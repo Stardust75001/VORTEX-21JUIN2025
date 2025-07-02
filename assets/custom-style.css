@@ -39,12 +39,14 @@ main {
 
 .social-img-icon,
 .top-social-bar img {
-   width: 40px;
+  width: 40px;
   height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .social-img-icon:hover,
@@ -58,16 +60,14 @@ main {
 }
 
 .language-selector-right .flag-icon {
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px solid #ccc;
 }
 
-.announcement-bar__left img.flag {
-  border-radius: 50%;
-}
-
+.announcement-bar__left img.flag,
 .announcement-bar__right img.flag {
-  display: none;
+  border-radius: 6px;
+  display: inline-block;
 }
 
 /* === Stories Bar === */
@@ -136,13 +136,57 @@ main {
   pointer-events: auto;
 }
 
+/* === Responsive Mobile Adjustments === */
 @media (max-width: 768px) {
+  main {
+    padding-top: 275px !important;
+  }
+
+  .top-social-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+  }
+
+  .top-social-bar img,
+  .social-img-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .language-selector-right .flag-icon {
+    width: 20px;
+  }
+
+  .stories-bar {
+    padding: 4px 8px;
+  }
+
+  .animated-stories-link img {
+    width: 50px;
+    height: 50px;
+  }
+
   .tooltip-bubble {
-    top: 50%;
+    top: 120%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
     font-size: 12px;
     padding: 5px 10px;
+  }
+
+  .image-banner-title {
+    font-size: 24px;
+  }
+
+  .image-banner-description {
+    font-size: 14px;
+  }
+
+  .btn-group .btn {
+    padding: 8px 16px;
+    font-size: 12px;
   }
 }
 
@@ -237,61 +281,6 @@ main {
   margin-bottom: 1rem;
 }
 
-/* === Responsive Mobile Adjustments === */
-@media (max-width: 768px) {
-  main {
-    padding-top: 275px !important;
-  }
-
-  .top-social-bar {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 10px;
-  }
-
-  .top-social-bar img,
-  .social-img-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .language-selector-right .flag-icon {
-    width: 20px;
-  }
-
-  .stories-bar {
-    padding: 4px 8px;
-  }
-
-  .animated-stories-link img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .tooltip-bubble {
-    top: 120%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    font-size: 12px;
-    padding: 5px 10px;;
-  }
-
-  /* === Mobile */
-  .image-banner-title {
-    font-size: 24px;
-  }
-
-  .image-banner-description {
-    font-size: 14px;
-  }
-
-  .btn-group .btn {
-    padding: 8px 16px;
-    font-size: 12px;
-  }
-}
-
 /* === Affichage conditionnel Desktop / Mobile === */
 .only-mobile {
   display: none;
@@ -305,10 +294,12 @@ main {
     display: block;
   }
   .only-desktop {
-  } display: none;
-} }
+    display: none;
+  }
+}
 
-.language-selector-right img { 
+/* === Language Selector Flags Style Fix === */
+.language-selector-right img {
   width: 40px;
   height: auto;
   aspect-ratio: 3 / 2;
