@@ -27,7 +27,7 @@ Section : Stories Bar Sticky Configurable (préremplie)
   class="tooltip-bubble"
   role="tooltip"
   style="background-color: {{ section.settings.tooltip_bg }}; opacity: {{ section.settings.tooltip_opacity }};">
-  {{ 'custom.stories.' | append: block.settings.title | handle | t }}
+  {{ block.settings.title }}
 </div>
       </a>
     {% endfor %}
