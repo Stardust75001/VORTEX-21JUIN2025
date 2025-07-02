@@ -112,9 +112,9 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  top: 30px;
+  bottom: 100%;
   left: 50%;
-  transform: translate(-50%, -100%);
+  transform: translateX(-50%) translateY(-8px);
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -149,11 +149,9 @@ main {
   pointer-events: auto;
 }
 
-.animated-stories-link:last-child .tooltip-bubble {
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%) translateY(-120%);
-}
+/* suppression de la règle perturbatrice :
+.animated-stories-link:last-child .tooltip-bubble { ... } 
+*/
 
 /* === Image Banner === */
 .image-banner-wrapper {
@@ -279,7 +277,7 @@ main {
   }
 
   .tooltip-bubble {
-    transform: translateX(-50%) translateY(-8px);
+    transform: translateX(-50%) translateY(-12px);
     font-size: 12px;
     padding: 5px 10px;
   }
