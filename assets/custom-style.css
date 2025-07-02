@@ -128,10 +128,6 @@ main {
   visibility: hidden;
 }
 
-.tooltip-bubble::after {
-  display: none; /* retire la flèche */
-}
-
 .tooltip-bubble.visible,
 .tooltip-bubble.hover-visible,
 .tooltip-bubble.tap-visible {
