@@ -112,9 +112,11 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  bottom: calc(100% + 12px); /* 12px d'espace au-dessus de l’icône */
+  top: auto;
+  bottom: 100%; /* Positionne l’infobulle juste au-dessus de l'icône */
   left: 50%;
   transform: translateX(-50%);
+  margin-bottom: 10px; /* espace entre l’icône et la bulle */
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
