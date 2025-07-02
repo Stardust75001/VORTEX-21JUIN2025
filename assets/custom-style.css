@@ -112,7 +112,7 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  top: -100px;
+  top: -70px; /* Ajuste cette valeur si besoin (ex: -60px, -80px) */
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(15, 99, 120, 0.95);
@@ -126,7 +126,7 @@ main {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 20000;
+  z-index: 16000; /* Bien au-dessus du header */
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
