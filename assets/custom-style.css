@@ -89,10 +89,6 @@ main {
 
 .animated-stories-link {
   position: relative;
-  display: inline-block;
-  text-align: center;
-  cursor: pointer;
-  isolation: isolate;
 }
 
 .animated-stories-link img {
@@ -112,9 +108,9 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  top: 50%;
+  top: 100%; /* place l'infobulle SOUS l'icône */
   left: 50%;
-  transform: translate(-50%, 40%); /* 40% = bien plus bas que le centre */
+  transform: translate(-50%, 12px); /* décale de 12px sous l'icône, ajuste si besoin */
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -135,11 +131,11 @@ main {
 .tooltip-bubble::after {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, 0%); /* Ajusté pour la pointe */
+  transform: translate(-50%, -100%);
   border: 6px solid transparent;
-  border-top-color: rgba(15, 99, 120, 0.95);
+  border-bottom: 6px solid rgba(15, 99, 120, 0.95);
 }
 
 .tooltip-bubble.visible,
@@ -152,9 +148,9 @@ main {
 
 @media (max-width: 768px) {
   .tooltip-bubble {
-    top: 50%;
+    top: 100%;
     left: 50%;
-    transform: translate(-50%, -30%); /* Même ajustement en mobile */
+    transform: translate(-50%, 8px); /* décale de 8px sous l'icône sur mobile */
     font-size: 12px;
     padding: 5px 10px;
   }
@@ -288,9 +284,9 @@ main {
     left: 50%;
     transform: translate(-50%, -30%); /* Même ajustement en mobile */
     font-size: 12px;
-    padding: 5px 10px;
+    padding: 5px 10px;;
   }
-
+r mobile */
   .image-banner-title {
     font-size: 24px;
   }
