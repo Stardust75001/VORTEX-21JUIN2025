@@ -273,8 +273,8 @@ main {
   }
 
   .tooltip-bubble {
-    top: 42%;
-    transform: translate(-50%, -140%);
+    top: 30%;
+    transform: translate(-50%, -100%);
     font-size: 12px;
     padding: 5px 10px;
   }
