@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!isMobile) {
       // Desktop : infobulle au survol
       link.addEventListener("mouseenter", () => {
+        resetTooltipPosition(tooltip);
         tooltip.classList.add("hover-visible");
         setTimeout(() => adjustTooltipPosition(tooltip), 0);
       });
@@ -35,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Corrige la position horizontale si déborde à gauche/droite
 function adjustTooltipPosition(tooltip) {
   const rect = tooltip.getBoundingClientRect();
   const vw = window.innerWidth;
@@ -54,7 +54,6 @@ function adjustTooltipPosition(tooltip) {
   }
 }
 
-// Remet l’infobulle centrée
 function resetTooltipPosition(tooltip) {
   tooltip.style.left = "50%";
   tooltip.style.transform = "translateX(-50%)";
