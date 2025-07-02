@@ -112,9 +112,9 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  top: 40%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -170%);
+  transform: translate(-50%, -120%);
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -273,10 +273,11 @@ main {
   }
 
   .tooltip-bubble {
-    top: 30%;
-    transform: translate(-50%, -100%);
-    font-size: 12px;
-    padding: 5px 10px;
+   top: 0;
+  left: 50%;
+  transform: translate(-50%, -130%);
+  font-size: 12px;
+  padding: 5px 10px;
   }
 
   .image-banner-title {
