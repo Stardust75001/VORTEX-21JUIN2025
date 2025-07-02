@@ -112,9 +112,9 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  top: -15px; /* Ajuste cette valeur si besoin (ex: -60px, -80px) */
+  bottom: 100%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-12px);
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -126,7 +126,7 @@ main {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 16000; /* Bien au-dessus du header */
+  z-index: 16000;
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
@@ -152,7 +152,7 @@ main {
 .animated-stories-link:last-child .tooltip-bubble {
   left: auto;
   right: 0;
-  transform: translateX(0) translateY(-100%);
+  transform: translateX(0) translateY(-12px);
 }
 
 /* === Image Banner === */
@@ -279,7 +279,7 @@ main {
   }
 
   .tooltip-bubble {
-    top: -90px;
+    transform: translateX(-50%) translateY(-8px);
     font-size: 12px;
     padding: 5px 10px;
   }
