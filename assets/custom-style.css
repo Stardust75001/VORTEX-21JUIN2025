@@ -114,7 +114,7 @@ main {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, -150%); /* ← AVANT : -120% */
+  transform: translate(-50%, -180%); /* ← AVANT : -120% */
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
