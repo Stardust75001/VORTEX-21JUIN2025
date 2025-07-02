@@ -64,26 +64,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Ajustement position tooltip (évite débordement)
 function adjustTooltipPosition(tooltip) {
-  const rect = tooltip.getBoundingClientRect();
-  const vw = window.innerWidth;
-
+  // Positionne toujours au centre de l’icône
   tooltip.style.left = "50%";
-  tooltip.style.top = "100%";
-  tooltip.style.transform = "translate(-50%, 16px)"; // décale de 16px sous l’icône
-
-  if (rect.left < 0) {
-    const shift = Math.abs(rect.left) + 10;
-    tooltip.style.left = `${shift}px`;
-    tooltip.style.transform = "translateY(16px)";
-  } else if (rect.right > vw) {
-    const overflow = rect.right - vw + 10;
-    tooltip.style.left = `calc(50% - ${overflow}px)`;
-    tooltip.style.transform = "translate(-50%, 16px)";
-  }
+  tooltip.style.top = "50%";
+  tooltip.style.transform = "translate(-50%, -50%)";
 }
 
 function resetTooltipPosition(tooltip) {
   tooltip.style.left = "50%";
-  tooltip.style.top = "100%";
-  tooltip.style.transform = "translate(-50%, 16px)";
+  tooltip.style.top = "50%";
+  tooltip.style.transform = "translate(-50%, -50%)";
 }
