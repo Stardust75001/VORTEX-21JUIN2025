@@ -114,7 +114,7 @@ main {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  top: 0px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(15, 99, 120, 0.95);
