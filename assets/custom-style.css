@@ -112,7 +112,7 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  bottom: 70px;
+  bottom: 100px; /* ← Ajuste selon l'épaisseur de ton header */
   top: auto;
   left: 50%;
   transform: translateX(-50%);
@@ -127,7 +127,7 @@ main {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 99999;
+  z-index: 16000;
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
