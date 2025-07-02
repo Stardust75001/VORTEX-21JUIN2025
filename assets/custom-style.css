@@ -137,7 +137,7 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%); /* Ajusté pour la pointe */
+  transform: translate(-50%, 0%); /* Ajusté pour la pointe */
   border: 6px solid transparent;
   border-top-color: rgba(15, 99, 120, 0.95);
 }
