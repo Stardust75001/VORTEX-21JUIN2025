@@ -149,6 +149,12 @@ main {
   pointer-events: auto;
 }
 
+.tooltip-bubble.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 /* === Image Banner === */
 .image-banner-wrapper {
   position: relative;
