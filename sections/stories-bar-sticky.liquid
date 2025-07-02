@@ -14,10 +14,15 @@ Section : Stories Bar Sticky Configurable (préremplie)
     {% assign size = section.settings.icon_size | default: 90 %}
     {% for block in stories %}
       <a href="{{ block.settings.link }}" class="animated-stories-link" style="--i:{{ forloop.index }}">
-        <img src="{{ block.settings.image | image_url: width: size, height: size, crop: 'center' }}"
-             alt="{{ block.settings.title }}"
-             width="{{ size }}" height="{{ size }}" loading="lazy">
-        <div class="tooltip-bubble">{{ block.settings.title }}</div>
+        {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | image_url: width: size, height: size, crop: 'center' }}"
+               alt="{{ block.settings.title }}"
+               width="{{ size }}" height="{{ size }}" loading="lazy">
+        {% endif %}
+        <div class="tooltip-bubble"
+             style="background-color: {{ section.settings.tooltip_bg }}; opacity: {{ section.settings.tooltip_opacity }};">
+          {{ block.settings.title }}
+        </div>
       </a>
     {% endfor %}
   </div>
