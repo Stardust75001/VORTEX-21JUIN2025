@@ -112,9 +112,9 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, -120%);
+  transform: translate(-50%, -160%);
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -142,14 +142,9 @@ main {
   border-top-color: rgba(15, 99, 120, 0.95);
 }
 
+.tooltip-bubble.visible,
 .tooltip-bubble.hover-visible,
 .tooltip-bubble.tap-visible {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.tooltip-bubble.visible {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -279,11 +274,11 @@ main {
   }
 
   .tooltip-bubble {
-   top: 0;
-  left: 50%;
-  transform: translate(-50%, -130%);
-  font-size: 12px;
-  padding: 5px 10px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -160%);
+    font-size: 12px;
+    padding: 5px 10px;
   }
 
   .image-banner-title {
