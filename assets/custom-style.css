@@ -39,12 +39,12 @@ main {
 
 .social-img-icon,
 .top-social-bar img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
+   width: 40px;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
   border-radius: 6px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .social-img-icon:hover,
