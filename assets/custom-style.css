@@ -110,11 +110,12 @@ main {
 }
 
 /* === Tooltip (Infobulle) === */
+/* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  bottom: calc(100% + 18px); /* décalage vers le haut légèrement augmenté */
+  top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -120%);
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -126,7 +127,7 @@ main {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 999999;
+  z-index: 99999;
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
@@ -139,7 +140,7 @@ main {
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
-  border-top-color: rgba(15, 99, 120, 0.95); /* flèche dirigée vers l'icône */
+  border-top-color: rgba(15, 99, 120, 0.95);
 }
 
 .tooltip-bubble.hover-visible,
@@ -150,9 +151,9 @@ main {
 }
 
 .animated-stories-link:last-child .tooltip-bubble {
-  left: auto;
-  right: 0;
-  transform: translateX(0) translateY(-12px);
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) translateY(-120%);
 }
 
 /* === Image Banner === */
