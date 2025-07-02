@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!isMobile) {
       // Desktop : infobulle au survol
       link.addEventListener("mouseenter", () => {
-        resetTooltipPosition(tooltip);
         tooltip.classList.add("hover-visible");
         setTimeout(() => adjustTooltipPosition(tooltip), 0);
       });
@@ -21,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Mobile : clic = infobulle + redirection différée
       link.addEventListener("click", e => {
         e.preventDefault();
+
         document.querySelectorAll(".tooltip-bubble.tap-visible").forEach(el => {
           el.classList.remove("tap-visible");
         });
@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Ajuste la position de l'infobulle si elle déborde horizontalement
 function adjustTooltipPosition(tooltip) {
   const rect = tooltip.getBoundingClientRect();
   const vw = window.innerWidth;
@@ -54,6 +55,7 @@ function adjustTooltipPosition(tooltip) {
   }
 }
 
+// Réinitialise la position centrée
 function resetTooltipPosition(tooltip) {
   tooltip.style.left = "50%";
   tooltip.style.transform = "translateX(-50%)";
