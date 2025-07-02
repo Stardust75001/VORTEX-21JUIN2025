@@ -1,13 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
   let lastClicked = null;
+  const isMobile = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
+  // ✅ Gestion des infobulles
   document.querySelectorAll('.animated-stories-link').forEach(function (el) {
+    const tooltip = el.querySelector('.tooltip-bubble');
+    if (!tooltip) return;
+
+    // ✅ Mobile : infobulle au 1er clic, lien au 2e clic
     el.addEventListener('click', function (e) {
-      const tooltip = el.querySelector('.tooltip-bubble');
-      if (!tooltip) return;
-
-      const isMobile = window.matchMedia("(hover: none), (pointer: coarse)").matches;
-
       if (isMobile) {
         if (lastClicked === el && tooltip.classList.contains('visible')) return;
 
@@ -22,8 +23,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 3000);
       }
     });
+
+    // ✅ Desktop : infobulle au survol
+    if (!isMobile) {
+      el.addEventListener('mouseenter', () => {
+        tooltip.classList.add('hover-visible');
+      });
+      el.addEventListener('mouseleave', () => {
+        tooltip.classList.remove('hover-visible');
+      });
+    }
   });
 
+  // ✅ Ferme l’infobulle si clic en dehors (mobile)
   document.addEventListener('click', function (e) {
     if (!e.target.closest('.animated-stories-link')) {
       document.querySelectorAll('.tooltip-bubble.visible').forEach(tip => tip.classList.remove('visible'));
@@ -31,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ✅ Lazy loading auto sur toutes les images
+  // ✅ Lazy loading sur toutes les images sans attribut
   document.querySelectorAll('img:not([loading])').forEach(img => {
     img.setAttribute('loading', 'lazy');
   });
 
-  // ✅ Padding top dynamique
+  // ✅ Padding top dynamique pour <main>
   function updateMainPadding() {
     const headerGroup = document.querySelector('.header-sticky-group');
     const main = document.querySelector('main');
@@ -47,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('load', updateMainPadding);
   window.addEventListener('resize', updateMainPadding);
 
-  // ✅ Attente du bouton de souscription Shopify
+  // ✅ Attente du bouton d’abonnement Shopify
   const SUBSCRIPTION_BTN_SELECTOR = '#shopify-subscription-policy-button';
   if (document.querySelector(SUBSCRIPTION_BTN_SELECTOR)) {
     waitForElement(SUBSCRIPTION_BTN_SELECTOR)
@@ -103,7 +115,7 @@ function waitForElement(selector, timeout = 10000) {
   });
 }
 
-// ✅ ATC / Checkout helpers
+// ✅ Add to cart (ATC) helpers
 function handleAtcFormVariantClick(element, event) {
   if (event) event.preventDefault();
   const form = element.closest("form");
