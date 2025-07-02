@@ -110,12 +110,10 @@ main {
 }
 
 /* === Tooltip (Infobulle) === */
-/* === Tooltip (Infobulle) === */
 .tooltip-bubble {
-  opacity: 0;
-  pointer-events: none;
   position: absolute;
-  top: -80px; /* Desktop : bien au-dessus du centre de l’icône */
+  bottom: 70px;
+  top: auto;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(15, 99, 120, 0.95);
@@ -130,17 +128,18 @@ main {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
   visibility: hidden;
 }
 
 .tooltip-bubble::after {
-  content: "";
-  position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
   border: 6px solid transparent;
   border-top-color: rgba(15, 99, 120, 0.95);
+  position: absolute;
 }
 
 .tooltip-bubble.hover-visible,
