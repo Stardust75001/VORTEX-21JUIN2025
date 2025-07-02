@@ -12,9 +12,8 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Padding top total pour main : social bar + navbar + stories bar */
 main {
-  padding-top: 200px !important;
+  padding-top: 360px !important;
 }
 
 /* === Top Social Bar === */
@@ -23,33 +22,60 @@ main {
   justify-content: space-between;
   align-items: center;
   background-color: #889080;
-  padding: 12px 20px;
-  height: auto;
+  padding: 12px 20px; /* ✅ plus d’espace */
+  height: auto;        /* ✅ suppression height fixe */
   z-index: 11000;
   overflow-x: auto;
   white-space: nowrap;
   gap: 12px;
 }
 
-/* === Stories Bar === */
-.stories-bar-wrapper {
-  position: fixed !important;
-  top: 120px !important; /* Ajuste en fonction hauteur cumulée social bar + navbar */
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background-color: #889080;
-  z-index: 16000; /* Au-dessus navbar */
-  box-sizing: border-box;
-  padding: 10px 0;
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+.social-icons-left,
+.language-selector-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Ajout pour éviter que le contenu sous la barre soit masqué */
-body > main {
-  margin-top: 80px; /* même hauteur que stories-bar-wrapper */
+.social-img-icon,
+.top-social-bar img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.social-img-icon:hover,
+.top-social-bar img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.language-selector-right a {
+  padding: 0 5px;
+}
+
+.language-selector-right .flag-icon {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.announcement-bar__left img.flag {
+  border-radius: 50%;
+}
+
+.announcement-bar__right img.flag {
+  display: none;
+}
+
+/* === Stories Bar === */
+.stories-bar-wrapper {
+  width: 100%;
+  background-color: #889080;
+  padding: 10px 0;
+  z-index: 12000;
 }
 
 .stories-bar {
@@ -59,7 +85,6 @@ body > main {
   padding: 6px 12px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  height: 100%;
 }
 
 .animated-stories-link {
@@ -68,8 +93,6 @@ body > main {
   text-align: center;
   cursor: pointer;
   isolation: isolate;
-  height: 60px;
-  line-height: 60px;
 }
 
 .animated-stories-link img {
@@ -91,23 +114,22 @@ body > main {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  bottom: 140%; /* Remonte plus haut au-dessus des icônes */
+  top: 48px;
   left: 50%;
-  transform: translateX(-50%) translateY(-15px);
+  transform: translateX(-50%);
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
-  padding: 8px 16px;
+  padding: 6px 14px;
   font-size: 14px;
   border-radius: 6px;
-  white-space: normal;
-  max-width: 300px;
+  white-space: nowrap;
+  max-width: 90vw;
   text-overflow: ellipsis;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 99999;
   visibility: hidden;
-  text-align: center;
 }
 
 .tooltip-bubble::after {
@@ -128,9 +150,9 @@ body > main {
 }
 
 .animated-stories-link:last-child .tooltip-bubble {
-  left: auto !important;
-  right: 0 !important;
-  transform: translateX(0) translateY(-100%) !important;
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(-100%);
 }
 
 /* === Image Banner === */
@@ -232,7 +254,7 @@ body > main {
 /* === Responsive Mobile Adjustments === */
 @media (max-width: 768px) {
   main {
-    padding-top: 220px !important;
+    padding-top: 275px !important;
   }
 
   .top-social-bar {
@@ -265,8 +287,47 @@ body > main {
     font-size: 12px;
     padding: 5px 10px;
   }
+
+  .image-banner-title {
+    font-size: 24px;
+  }
+
+  .image-banner-description {
+    font-size: 14px;
+  }
+
+  .btn-group .btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
 }
 
+/* === Affichage conditionnel Desktop / Mobile === */
+.only-mobile {
+  display: none;
+}
+.only-desktop {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .only-mobile {
+    display: block;
+  }
+  .only-desktop {
+    display: none;
+  }
+}
+.language-selector-right img {
+ width: 40px;
+  height: auto;
+  aspect-ratio: 3 / 2;         /* ✅ Format drapeau standard */
+  border-radius: 6px;          /* ✅ Coins arrondis */
+  max-height: 60px;
+  object-fit: cover;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
 /* === Affichage conditionnel Desktop / Mobile === */
 .only-mobile {
   display: none;
