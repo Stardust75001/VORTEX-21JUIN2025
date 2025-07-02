@@ -112,7 +112,7 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  top: 0;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -120%);
   background-color: rgba(15, 99, 120, 0.95);
