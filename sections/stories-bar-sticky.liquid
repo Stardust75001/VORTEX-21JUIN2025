@@ -3,7 +3,6 @@ Section : Stories Bar Sticky Configurable (préremplie)
 {% endcomment %}
 
 {% assign sort_order = section.settings.sort_order %}
-
 <div class="stories-bar-wrapper{% if request.page_type == 'index' %} animate-slide-in{% endif %}">
   <div class="stories-bar">
     {% assign stories = section.blocks %}
@@ -24,11 +23,11 @@ Section : Stories Bar Sticky Configurable (préremplie)
           >
         {% endif %}
         <div
-  class="tooltip-bubble"
-  role="tooltip"
-  style="background-color: {{ section.settings.tooltip_bg }}; opacity: {{ section.settings.tooltip_opacity }};">
-  {{ block.settings.title }}
-</div>
+          class="tooltip-bubble"
+          role="tooltip"
+          style="background-color: {{ section.settings.tooltip_bg }}; opacity: {{ section.settings.tooltip_opacity }};">
+          {{ block.settings.title }}
+        </div>
       </a>
     {% endfor %}
   </div>
