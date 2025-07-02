@@ -108,9 +108,9 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  top: 100%; /* place l'infobulle SOUS l'icône */
+  top: 120%;           /* descend l'infobulle bien plus bas sous l'icône */
   left: 50%;
-  transform: translate(-50%, 12px); /* décale de 12px sous l'icône, ajuste si besoin */
+  transform: translate(-50%, 0); /* ne remonte plus, décale juste horizontalement */
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -148,9 +148,9 @@ main {
 
 @media (max-width: 768px) {
   .tooltip-bubble {
-    top: 100%;
+    top: 120%;
     left: 50%;
-    transform: translate(-50%, 8px); /* décale de 8px sous l'icône sur mobile */
+    transform: translate(-50%, 0);
     font-size: 12px;
     padding: 5px 10px;
   }
@@ -280,9 +280,9 @@ main {
   }
 
   .tooltip-bubble {
-    top: 50%;
+    top: 120%;
     left: 50%;
-    transform: translate(-50%, -30%); /* Même ajustement en mobile */
+    transform: translate(-50%, 0);
     font-size: 12px;
     padding: 5px 10px;;
   }
