@@ -114,7 +114,7 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -60%); /* Ajusté pour superposer au-dessus du centre */
+  transform: translate(-50%, -30%); /* Plus bas qu'avant */
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -154,7 +154,7 @@ main {
   .tooltip-bubble {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -60%); /* Même ajustement en mobile */
+    transform: translate(-50%, -30%); /* Même ajustement en mobile */
     font-size: 12px;
     padding: 5px 10px;
   }
@@ -286,7 +286,7 @@ main {
   .tooltip-bubble {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -60%); /* Même ajustement en mobile */
+    transform: translate(-50%, -30%); /* Même ajustement en mobile */
     font-size: 12px;
     padding: 5px 10px;
   }
