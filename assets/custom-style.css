@@ -112,11 +112,9 @@ main {
 /* === Tooltip (Infobulle) === */
 .tooltip-bubble {
   position: absolute;
-  top: auto;
-  bottom: 100%; /* Positionne l’infobulle juste au-dessus de l'icône */
+  bottom: 70px; /* distance depuis l’icône, ajustable */
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 10px; /* espace entre l’icône et la bulle */
   background-color: rgba(15, 99, 120, 0.95);
   color: #fff;
   padding: 6px 14px;
@@ -128,7 +126,7 @@ main {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 16000;
+  z-index: 999999 !important; /* Prioritaire sur tous les headers */
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
