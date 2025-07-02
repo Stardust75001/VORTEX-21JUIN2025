@@ -50,7 +50,6 @@ Section : Stories Bar Sticky Configurable (dynamique via blocks)
 
   <div class="stories-bar">
     {% assign lang = request.locale.iso_code %}
-
     {% case lang %}
       {% when 'fr' %}{% assign base_url = '/fr/collections/' %}
       {% when 'de' %}{% assign base_url = '/de/collections/' %}
@@ -62,9 +61,9 @@ Section : Stories Bar Sticky Configurable (dynamique via blocks)
       {% assign image = block.settings.image | img_url: 'master' %}
       {% assign link = block.settings.link %}
       <a href="{{ link | prepend: base_url }}" class="animated-stories-link">
-        <img src="{{ image }}" alt="{{ title }}" />
+        <img src="{{ image }}" alt="{{ title }}">
         <div class="tooltip-bubble" role="tooltip">
-          {{ 'custom.stories.' | append: title | handle | t }}
+          {{ title }}
         </div>
       </a>
     {% endfor %}
