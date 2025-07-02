@@ -115,7 +115,7 @@ main {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  top: -80px; /* Desktop : bien au-dessus du centre de l’icône */
+  top: -150px; /* Desktop : bien au-dessus du centre de l’icône */
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(15, 99, 120, 0.95);
