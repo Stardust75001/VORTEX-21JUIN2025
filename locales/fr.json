@@ -27,7 +27,7 @@
   "custom_sections": {
     "image_banner": {
       "title": "Découvrez un havre d'élégance et d'innovation pour vos animaux.",
-      "description": "Sélections raffinées, friandises gourmandes et soins haut de gamme vous attendent.",
+      "text": "Sélections raffinées, friandises gourmandes et soins haut de gamme vous attendent.",
       "primary_button": "ENTREZ !",
       "secondary_button": "À PROPOS"
     },
