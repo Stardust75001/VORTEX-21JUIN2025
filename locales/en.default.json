@@ -27,7 +27,7 @@
   "custom_sections": {
     "image_banner": {
       "title": "Discover a haven of elegance and innovation for your pets.",
-      "description": "Curated selections, gourmet treats, and premium care await.",
+      "text": "Curated selections, gourmet treats, and premium care await.",
       "primary_button": "COME ON IN!",
       "secondary_button": "ABOUT US"
     },
