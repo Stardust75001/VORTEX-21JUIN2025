@@ -37,10 +37,19 @@ Section : Réseaux sociaux + Langues (footer uniquement, sans doublon avec heade
   {% endif %}
 </div>
 <div>
-  {% for language in localization.available_languages %}
-    <p>
-      Langue : {{ language.endonym_name }} ({{ language.iso_code }})<br>
-      URL racine : <a href="{{ language.root_url }}">{{ language.root_url }}</a>
-    </p>
-  {% endfor %}
+{% assign language_order = "fr,en,de" | split: "," %}
+{% for code in language_order %}
+  {% assign language = localization.available_languages | where: "iso_code", code | first %}
+  {% if language %}
+    <a href="{{ language.root_url }}" class="flag-icon" aria-label="{{ language.endonym_name }}">
+      <img
+        src="{{ 'flag-' | append: language.iso_code | append: '.png' | asset_url }}"
+        alt="{{ language.endonym_name }}"
+        width="32"
+        height="24"
+        loading="lazy"
+      />
+    </a>
+  {% endif %}
+{% endfor %}
 </div>
