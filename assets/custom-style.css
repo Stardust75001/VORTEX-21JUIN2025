@@ -308,42 +308,15 @@ main {
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-/* Conteneur général du footer social dans offcanvas */
-.offcanvas-footer {
-  padding: 12px 0;
-  overflow-x: hidden; /* empêcher le débordement horizontal */
-}
-
-/* Centrage et espacement des icônes sociales */
-.offcanvas-footer .social-icons,
-.offcanvas-footer .social-icons img {
+.offcanvas-footer .text-center {
   display: flex !important;
   justify-content: center;
   align-items: center;
   gap: 16px;
-  max-width: 100%;
-  overflow-x: auto; /* scroll horizontal si besoin */
+  overflow-x: auto;
 }
 
-/* Taille des icônes sociales dans offcanvas */
-.offcanvas-footer .social-icons img {
+.offcanvas-footer .text-center img {
   width: 36px !important;
   height: 36px !important;
-  object-fit: contain;
-  border-radius: 6px;
-  cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.offcanvas-footer .social-icons img:hover {
-  transform: scale(1.1);
-  opacity: 0.8;
-}
-
-/* Empêcher débordement ou marges sur les côtés */
-.offcanvas-body {
-  overflow-x: hidden;
-  padding-left: 15px;
-  padding-right: 15px;
 }
