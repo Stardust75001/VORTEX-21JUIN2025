@@ -14,7 +14,7 @@
 }
 
 .footer-flags {
-  display: flex;
+  display: none !important
   gap: 12px;
   align-items: center;
   flex-wrap: nowrap;
