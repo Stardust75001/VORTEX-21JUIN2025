@@ -66,3 +66,14 @@ jobs:
             exit 1
           fi
           echo "✅ Deployment succeeded."
+
+      - name: Notify Sentry Release & Deploy
+        run: |
+          sentry-cli releases new "$GITHUB_SHA"
+          sentry-cli releases set-commits "$GITHUB_SHA" --auto
+          sentry-cli releases finalize "$GITHUB_SHA"
+          sentry-cli releases deploys "$GITHUB_SHA" new -e production
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
