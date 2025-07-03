@@ -40,8 +40,7 @@ main {
 .social-img-icon,
 .top-social-bar img {
   width: 40px;
-  height: auto;
-  aspect-ratio: 3 / 2;
+  height: 40px; /* Hauteur fixée pour carré */
   object-fit: cover;
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -152,7 +151,7 @@ main {
   .top-social-bar img,
   .social-img-icon {
     width: 20px;
-    height: 20px;
+    height: 20px; /* Hauteur fixée pour mobile */
   }
 
   .language-selector-right .flag-icon {
@@ -301,7 +300,7 @@ main {
 /* === Language Selector Flags Style Fix === */
 .language-selector-right img {
   width: 40px;
-  height: auto;
+  height: 40px;
   aspect-ratio: 3 / 2;
   border-radius: 6px;
   max-height: 60px;
