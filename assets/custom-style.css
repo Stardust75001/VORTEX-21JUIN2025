@@ -40,7 +40,8 @@ main {
 .social-img-icon,
 .top-social-bar img {
   width: 40px;
-  height: 40px; /* Hauteur fixée pour carré */
+  height: auto;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -151,7 +152,7 @@ main {
   .top-social-bar img,
   .social-img-icon {
     width: 20px;
-    height: 20px; /* Hauteur fixée pour mobile */
+    height: 20px;
   }
 
   .language-selector-right .flag-icon {
@@ -256,10 +257,21 @@ main {
 
 .footer-social-icons img,
 .footer-social-icons svg {
-  width: 48px;
-  height: 48px;
+  width: 40px !important;   /* ajusté à 40px */
+  height: 30px !important;  /* ajusté à 30px */
   display: inline-block;
   vertical-align: middle;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-social-icons img:hover,
+.footer-social-icons svg:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
 }
 
 /* === Footer Logo Wrapper === */
@@ -294,6 +306,13 @@ main {
   }
   .only-desktop {
     display: none;
+  }
+  
+  /* Footer social icons responsive */
+  .footer-social-icons img,
+  .footer-social-icons svg {
+    width: 24px !important;
+    height: 18px !important;
   }
 }
 
