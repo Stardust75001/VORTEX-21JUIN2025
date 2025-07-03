@@ -36,7 +36,6 @@ jobs:
         env:
           SHOPIFY_CLI_AUTH_TOKEN: ${{ secrets.SHOPIFY_CLI_AUTH_TOKEN }}
         run: |
-          set -euo pipefail
           echo "🔐 Testing Shopify authentication..."
           shopify whoami || (echo "❌ Authentication failed." && exit 1)
 
@@ -56,7 +55,13 @@ jobs:
         run: |
           set -euo pipefail
           echo "🚀 Pushing theme to $SHOPIFY_STORE (theme ID: $SHOPIFY_THEME_ID)"
-          shopify theme push --store "$SHOPIFY_STORE" --theme "$SHOPIFY_THEME_ID" --path . --unpublished --json > deploy-result.json
+          SHOPIFY_CLI_AUTH_TOKEN="$SHOPIFY_CLI_AUTH_TOKEN" \
+          shopify theme push \
+            --store "$SHOPIFY_STORE" \
+            --theme "$SHOPIFY_THEME_ID" \
+            --path . \
+            --unpublished \
+            --json > deploy-result.json
 
       - name: Check Deployment Result
         run: |
@@ -67,12 +72,11 @@ jobs:
           fi
           echo "✅ Deployment succeeded."
 
-      - name: Notify Sentry Release & Deploy
+      - name: Notify Sentry Release
         run: |
           sentry-cli releases new "$GITHUB_SHA"
           sentry-cli releases set-commits "$GITHUB_SHA" --auto
           sentry-cli releases finalize "$GITHUB_SHA"
-          sentry-cli releases deploys "$GITHUB_SHA" new -e production
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
