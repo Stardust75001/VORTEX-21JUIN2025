@@ -1,40 +1,76 @@
-<div class="top-social-bar"></div>
+{% comment %}
+Section : Réseaux sociaux + Langues (header et footer unifiés, avec images CDN + drapeaux rectangulaires)
+{% endcomment %}
+
+<!-- Header Social + Language -->
+<div class="top-social-bar">
   <div class="social-icons-left">
-    {% if settings.social_instagram != blank %}
-      <a href="{{ settings.social_instagram }}" target="_blank">
-        <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/instagram.png?v=1745524276" alt="Instagram" class="social-img-icon">
-      </a>
-    {% endif %}
-    {% if settings.social_facebook != blank %}
-      <a href="{{ settings.social_facebook }}" target="_blank">
-        <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/facebook.png?v=1745524263" alt="Facebook" class="social-img-icon">
-      </a>
-    {% endif %}
-    {% if settings.social_tiktok != blank %}
-      <a href="{{ settings.social_tiktok }}" target="_blank">
-        <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/tiktok.png?v=1745524249" alt="TikTok" class="social-img-icon">
-      </a>
-    {% endif %}
-    {% if settings.social_phone != blank %}
-      <a href="https://wa.me/{{ settings.social_phone | remove: '+' | remove: '(' | remove: ')' | remove: ' ' | remove: '-' }}" target="_blank">
-        <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/WhatsApp.png?v=1745524257" alt="WhatsApp" class="social-img-icon">
-      </a>
-    {% endif %}
-    {% if settings.social_email != blank %}
-      <a href="mailto:{{ settings.social_email }}">
-        <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/mail.png?v=1745524212" alt="Email" class="social-img-icon">
-      </a>
-    {% endif %}
+    <a href="https://www.instagram.com/spencerandthecity/" target="_blank">
+      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/instagram.png?v=1745524276" alt="Instagram" class="social-img-icon">
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61573834333893" target="_blank">
+      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/facebook.png?v=1745524263" alt="Facebook" class="social-img-icon">
+    </a>
+    <a href="https://www.tiktok.com/@thepetsociety_paris" target="_blank">
+      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/tiktok.png?v=1745524249" alt="TikTok" class="social-img-icon">
+    </a>
+    <a href="https://wa.me/33769238799" target="_blank">
+      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/WhatsApp.png?v=1745524257" alt="WhatsApp" class="social-img-icon">
+    </a>
+    <a href="mailto:hello@thepetsociety.paris">
+      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/mail.png?v=1745524212" alt="Email" class="social-img-icon">
+    </a>
   </div>
-<div class="language-selector-right">
-  <a href="/" aria-label="English">
-    <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/US_FLAG.jpg?v=1747010572" alt="English" class="flag-icon" />
-  </a>
-  <a href="/fr" aria-label="Français">
-    <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/FR_FLAG.jpg?v=1747010571" alt="Français" class="flag-icon" />
-  </a>
-  <a href="/de" aria-label="Deutsch">
-    <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/DE_FLAG.jpg?v=1747010571" alt="Deutsch" class="flag-icon" />
-   </a>
-</div> <!-- .language-selector-right -->
-</div> <!-- .top-social-bar -->
+
+  <div class="language-selector-right">
+    <a href="/" aria-label="English">
+      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/US_FLAG.jpg?v=1747010572" alt="English" class="flag-icon" />
+    </a>
+    <a href="/fr" aria-label="Français">
+      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/FR_FLAG.jpg?v=1747010571" alt="Français" class="flag-icon" />
+    </a>
+    <a href="/de" aria-label="Deutsch">
+      <img src="https://cdn.shopify.com/s/files/1/0861/3180/2460/files/DE_FLAG.jpg?v=1747010571" alt="Deutsch" class="flag-icon" />
+    </a>
+  </div>
+</div>
+
+<!-- Footer Social + Language -->
+<div class="footer-social-bar">
+  <div class="footer-social-icons">
+    <a href="https://www.instagram.com/spencerandthecity/" target="_blank" rel="noopener" aria-label="Instagram">
+      <img src="{{ 'instagram.png' | asset_url }}" alt="Instagram" class="social-img-icon" loading="lazy">
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61573834333893" target="_blank" rel="noopener" aria-label="Facebook">
+      <img src="{{ 'facebook.png' | asset_url }}" alt="Facebook" class="social-img-icon" loading="lazy">
+    </a>
+    <a href="https://www.tiktok.com/@thepetsociety_paris" target="_blank" rel="noopener" aria-label="TikTok">
+      <img src="{{ 'tiktok.png' | asset_url }}" alt="TikTok" class="social-img-icon" loading="lazy">
+    </a>
+    <a href="https://wa.me/3369238799" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <img src="{{ 'WhatsApp.png' | asset_url }}" alt="WhatsApp" class="social-img-icon" loading="lazy">
+    </a>
+    <a href="mailto:hello@thepetsociety.paris" aria-label="Email">
+      <img src="{{ 'mail.png' | asset_url }}" alt="Email" class="social-img-icon" loading="lazy">
+    </a>
+  </div>
+
+  {% if localization.available_languages.size > 1 %}
+    <div class="footer-flags">
+      {% assign language_order = "fr,en,de" | split: "," %}
+      {% for code in language_order %}
+        {% assign language = localization.available_languages | where: "iso_code", code | first %}
+        {% if language %}
+          <a href="{{ language.root_url }}" aria-label="{{ language.endonym_name }}">
+            <img
+              src="{{ 'flag-' | append: language.iso_code | append: '.png' | asset_url }}"
+              alt="{{ language.endonym_name }}"
+              loading="lazy"
+              class="flag-icon"
+            />
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
