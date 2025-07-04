@@ -27,7 +27,7 @@ Section : Réseaux sociaux + Langues (footer uniquement, sans doublon avec heade
       {% for code in language_order %}
         {% assign language = localization.available_languages | where: "iso_code", code | first %}
         {% if language %}
-          <a href="{{ language.root_url }}" class="flag-icon" aria-label="{{ language.endonym_name }}">
+          <a href="{{ language.root_url }}" aria-label="{{ language.endonym_name }}">
             <img
               src="{{ 'flag-' | append: language.iso_code | append: '.png' | asset_url }}"
               alt="{{ language.endonym_name }}"
