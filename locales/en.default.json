@@ -63,7 +63,7 @@
       }
     },
     "header": "Header",
-    "footer": ""
+    "footer": "Footer"
   },
   "collection": {
     "btn_filter_products": "Filter products",
