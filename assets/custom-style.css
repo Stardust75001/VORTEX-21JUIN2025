@@ -22,13 +22,13 @@ main {
   justify-content: space-between;
   align-items: center;
   background-color: #889080;
-  padding: 12px 20px;
-  z-index: 11000;
+  padding: 10px 20px;
+  height: 60px;
+  z-index: 1000;
+  gap: 12px;
   overflow-x: auto;
   white-space: nowrap;
-  gap: 12px;
 }
-
 .social-icons-left,
 .language-selector-right {
   display: flex;
